@@ -12,13 +12,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
+  background: #eee;
   width: 100vw;
   height: 100vh;
   font-family: Poppins;
   display: flex;
   justify-content: center;
   position: relative;
+}
+
+a{
+  color: #eee;
 }

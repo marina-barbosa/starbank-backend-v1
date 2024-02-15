@@ -5,7 +5,7 @@
   height: 900px;
   // height: auto;
   background: transparent;
-  border: 1px solid green;
+  // border: 1px solid green;
 }
 
 .faixa-preta {
@@ -18,7 +18,7 @@
   z-index: -1;
 }
 
-.top-container{
+.top-container {
   color: #fff;
   height: 70px;
   width: 100%;
@@ -27,16 +27,43 @@
   justify-content: space-between;
 }
 
-.logo{
+.logo {
   font-weight: bold;
   font-size: 36px;
-  padding: 30px;
+  padding: 0 30px;
 }
 
-.topo{
+.top-right {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
+  padding: 0 30px;
+}
+
+.sidebar {
+  color: #fff;
+  width: 231px;
+  height: calc(100% - 70px);
+  background: var(--preto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.porquin {
+  width: 150px;
+}
+
+.side-mid{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-bot{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
