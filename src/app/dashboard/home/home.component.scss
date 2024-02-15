@@ -1,0 +1,42 @@
+.container {
+  max-width: 1440px;
+  max-height: 1024px;
+  width: 1440px;
+  height: 900px;
+  // height: auto;
+  background: transparent;
+  border: 1px solid green;
+}
+
+.faixa-preta {
+  background: var(--preto);
+  height: 70px;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.top-container{
+  color: #fff;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  font-weight: bold;
+  font-size: 36px;
+  padding: 30px;
+}
+
+.topo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
