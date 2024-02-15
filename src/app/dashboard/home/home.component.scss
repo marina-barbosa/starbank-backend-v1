@@ -2,7 +2,7 @@
   max-width: 1440px;
   max-height: 1024px;
   width: 1440px;
-  height: 900px;
+  height: 100%;
   // height: auto;
   background: transparent;
   // border: 1px solid green;
@@ -41,10 +41,15 @@
   padding: 0 30px;
 }
 
+.body{
+  display: flex;
+  height: calc(100% - 70px);
+}
+
 .sidebar {
   color: #fff;
   width: 231px;
-  height: calc(100% - 70px);
+
   background: var(--preto);
   display: flex;
   flex-direction: column;
@@ -66,4 +71,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 231px);
+}
+
+.cards{
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+}
+
+.card {
+  text-align: center;
+}
+
+.card p {
+  margin: 30px auto;
+}
+
+.conta, .credito{
+  background: rgb(36, 36, 163);
+  width: 345px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.table{
+  width: 835px;
+  height: 360px;
+  border: 1px solid #111;
+}
+
+.bot{
+  color: #52596D;
+  margin-bottom: 30px;
 }
