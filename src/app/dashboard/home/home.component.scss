@@ -41,7 +41,7 @@
   padding: 0 30px;
 }
 
-.body{
+.body {
   display: flex;
   height: calc(100% - 70px);
 }
@@ -61,19 +61,19 @@
   width: 150px;
 }
 
-.side-mid{
+.side-mid {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.side-bot{
+.side-bot {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.right{
+.right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -81,10 +81,10 @@
   width: calc(100% - 231px);
 }
 
-.cards{
+.cards {
   display: flex;
   justify-content: space-around;
-  gap: 50px;
+  gap: 90px;
 }
 
 .card {
@@ -92,23 +92,24 @@
 }
 
 .card p {
-  margin: 30px auto;
+  margin: 40px auto;
 }
 
-.conta, .credito{
+.conta,
+.credito {
   background: rgb(36, 36, 163);
   width: 345px;
   height: 200px;
   border-radius: 20px;
 }
 
-.table{
+.table {
   width: 835px;
   height: 360px;
   border: 1px solid #111;
 }
 
-.bot{
+.bot {
   color: #52596D;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
