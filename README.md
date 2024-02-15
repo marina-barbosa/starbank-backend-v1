@@ -1,4 +1,4 @@
-![StarBank](StarPay/src/assets/StarBank.png) ![Foguete](StarPay/src/assets/logo1.png)
+![StarBank](src/assets/StarBank.png) ![Foguete](src/assets/logo1.png)
 
 
 Star Bank Fintech Project | Sharp Coders 2023
