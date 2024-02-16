@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <title>StarPay</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="src\styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>Document</title>
   </head>
+
   <body>
     <dir class="navigation">
       <ul>
@@ -49,8 +50,15 @@
         <div class="indicator"></div>
       </ul>
     </dir>
+    <script>
+      const list = document.querySelectorAll(".list");
 
-    <script src="Script.js"></script>
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
 
     <script
       type="module"
