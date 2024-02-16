@@ -92,21 +92,62 @@
 }
 
 .card p {
-  margin: 40px auto 25px auto;
+  margin: 25px auto 25px auto;
 }
 
 .conta,
 .credito {
-  background: rgb(36, 36, 163);
+  color: #fff;
   width: 345px;
   height: 200px;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-image: url('../../../assets/cartao-sp.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.credito {
+  font-size: 14px;
+}
+
+.credito img {
+  width: 30px;
+}
+
+.credito div:nth-child(1) {
+  display: flex;
+  margin-left: 0;
+}
+
+.credito div:nth-child(2) {
+  font-size: 20px;
+}
+
+.credito div:nth-child(3) {
+  text-align: start;
+}
+
+.credito div:nth-child(4) {
+  display: flex;
+  justify-content: space-between;
+}
+
+.credito div:nth-child(4) p {
+  margin: 0px;
+}
+
+.credito div:nth-child(4) img {
+  margin-top: -5px;
+  margin-bottom: -10px;
 }
 
 .table {
   width: 835px;
   height: 400px;
-  border: 1px solid rgb(44, 231, 44);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -115,11 +156,12 @@
 .title {
   display: flex;
   justify-content: space-between;
-  padding: 25px;
+  padding: 0 20px;
 }
 
 table {
   width: 100%;
+  border: 1px solid rgb(44, 231, 44);
 }
 
 .table-body thead {
@@ -131,12 +173,16 @@ table {
   text-align: center;
 }
 
+.table-body tr {
+  height: 50px;
+}
+
 .table-body tbody div {
   width: 30px;
   height: 30px;
   border-radius: 20px;
   background: var(--verde);
-  align-self: center;
+  margin: auto;
 }
 
 .table-body tbody tr td:nth-child(3),
@@ -148,6 +194,7 @@ table {
 .page-btn {
   display: flex;
   gap: 5px;
+  margin-top: 5px;
 }
 
 .page-btn button {
