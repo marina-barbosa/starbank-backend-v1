@@ -55,7 +55,7 @@ export class HomeComponent {
         },
         {
           id: 3,
-          tipo: 'entrada',
+          tipo: 'saída',
           data: new Date(),
           detalhes: ['Lorem Ipsum', 'Compra Online'],
           valor: -300.00
@@ -66,6 +66,13 @@ export class HomeComponent {
           data: new Date(),
           detalhes: ['Cartão de Crédito','Compra online'],
           valor: -300.00
+        },
+        {
+          id: 5,
+          tipo: 'entrada',
+          data: new Date(),
+          detalhes: ['Conta Corrente','Salário'],
+          valor: 3700.00
         },
         {
           id: 5,

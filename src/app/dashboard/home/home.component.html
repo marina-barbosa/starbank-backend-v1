@@ -86,8 +86,8 @@
             <tbody>
               <tr *ngFor="let transacao of user.transacoes">
                 <td>
-                  <div *ngIf="transacao.tipo === 'entrada'"><i class="bi bi-arrow-down-up"></i></div>
-                  <div *ngIf="transacao.tipo === 'saída'"><i class="bi bi-credit-card"></i></div>
+                  <div [ngStyle]="{'background': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}" *ngIf="transacao.tipo === 'entrada'"><i class="bi bi-arrow-down-up"></i></div>
+                  <div [ngStyle]="{'background': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}" *ngIf="transacao.tipo === 'saída'"><i class="bi bi-credit-card"></i></div>
                 </td>
                 <td>{{ transacao.data | date:'dd/MM/yyyy' }}</td>
                 <td>{{ transacao.detalhes[0] }}</td>
