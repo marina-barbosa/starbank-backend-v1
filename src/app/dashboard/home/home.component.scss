@@ -70,6 +70,11 @@
   justify-content: space-around;
 }
 
+.sidebar a:hover {
+  color: var(--amarelo);
+  // background: #fff;
+}
+
 .porquin {
   width: 150px;
 }
@@ -91,10 +96,14 @@
   margin-bottom: -1px;
 }
 
-.side-mid i,.side-mid img, .side-bot i {
-    margin-right: 15px;
+.side-mid i,
+.side-mid img,
+.side-bot i {
+  margin-right: 15px;
 }
-.side-mid a, .side-bot a {
+
+.side-mid a,
+.side-bot a {
   margin-bottom: 15px;
 }
 
@@ -240,9 +249,11 @@ table {
 .table-body tbody tr:nth-child(even) td div {
   background: var(--vermelho);
 }
+
 .table-body tbody tr:nth-child(even) td:nth-child(5) {
   color: var(--vermelho);
 }
+
 .table-body tbody tr:nth-child(odd) td:nth-child(5) {
   color: var(--verde);
 }
