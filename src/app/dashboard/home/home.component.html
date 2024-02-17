@@ -41,9 +41,15 @@
     </div>
 
     <div class="right">
+        <label for="menu-icon" class="menu-icon">
+          <input id="menu-icon" type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
       <div class="cards">
         <div class="card">
-          <p>Conta</p>
+          <h2>Conta</h2>
           <div class="conta">
             <div>{{user.name}}</div>
             <div>
@@ -53,7 +59,7 @@
           </div>
         </div>
         <div class="card">
-          <p>Cartão</p>
+          <h2>Cartão</h2>
           <div class="credito">
             <div><img src="../../../assets/credit-card-chip.svg" alt="" srcset=""></div>
             <div>{{user.cartao.numero}}</div>
@@ -86,7 +92,7 @@
               <tr>
                 <th>Tipo</th>
                 <th>Data</th>
-                <th colspan="2">Detalhes</th>
+                <th class="detalhes" >Detalhes</th>
                 <th>Valor</th>
                 <th>Edit</th>
               </tr>

@@ -1,7 +1,9 @@
 .container {
-  max-width: 1440px;
+  max-width: 1600px;
+  // max-width: 1440px;
   max-height: 1024px;
-  width: 1440px;
+  // width: 75vw;
+  width: 100vw;
   height: 100%;
   // height: auto;
   background: transparent;
@@ -11,7 +13,7 @@
 .faixa-preta {
   background: var(--preto);
   height: 70px;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -62,7 +64,7 @@
 .sidebar {
   color: #fff;
   width: 230px;
-
+  font-family: Khand;
   background: var(--preto);
   display: flex;
   flex-direction: column;
@@ -130,24 +132,80 @@
   width: calc(100% - 230px);
 }
 
+.menu-icon {
+  width: 50px;
+  height: 45px;
+  border-radius: 10px;
+  background: #c4c4c43a;
+  padding: 10px;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.menu-icon input {
+  display: none;
+}
+
+.menu-icon span {
+  display: block;
+  position: relative;
+  height: 3.5px;
+  width: 100%;
+  background: var(--preto);
+  border-radius: 10px;
+  opacity: 1;
+  left: 0;
+  margin-bottom: 24%;
+  transition: 0.3s ease-in-out;
+}
+
+.menu-icon span {
+  transform-origin: left center;
+}
+
+.menu-icon input:checked~span {
+  background: var(--preto);
+  left: 5px;
+  margin-bottom: 28%;
+}
+
+.menu-icon input:checked~span:nth-of-type(1) {
+  transform: rotate(50deg);
+}
+
+.menu-icon input:checked~span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.menu-icon input:checked~span:nth-of-type(3) {
+  transform: rotate(-50deg);
+}
+
+
 .cards {
   display: flex;
   justify-content: space-around;
-  gap: 90px;
+  gap: 11%;
+  max-width: 782px;
+  width: 100%;
 }
 
 .card {
   text-align: center;
 }
 
-.card p {
+.card h2 {
   margin: 25px auto 25px auto;
+  font-family: khand;
 }
 
 .conta,
 .credito {
   color: #fff;
-  width: 345px;
+  width: 319px;
   height: 200px;
   border-radius: 20px;
   display: flex;
@@ -214,7 +272,8 @@
 }
 
 .table {
-  width: 835px;
+  max-width: 835px;
+  width: 100%;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -224,7 +283,9 @@
 .title {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 20px 20px;
+  font-family: khand;
+  font-size: 20px;
 }
 
 table {
@@ -283,6 +344,7 @@ table {
   display: flex;
   gap: 5px;
   margin-top: 5px;
+  display: none;
 }
 
 .page-btn button {
@@ -303,4 +365,70 @@ table {
   margin-bottom: 20px;
   display: flex;
   justify-content: space-evenly;
+}
+
+
+
+@media screen and (max-width: 1015px) {
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar,
+  .faixa-preta,
+  .top-container {
+    display: none;
+  }
+
+  .right,
+  .table,
+  .cards {
+    width: 100vw;
+  }
+
+  .cards {
+    gap: 2%
+  }
+}
+
+@media screen and (max-width: 735px) {
+
+  .right {
+    justify-content: space-evenly;
+  }
+
+  .cards .card:nth-child(2) {
+    display: none;
+  }
+
+  .table-body table thead .detalhes {
+    grid-column: span 1;
+  }
+
+  // .table-body thead th:first-child {
+  //   width: 50px;
+  // }
+  .table-body tbody tr td {
+    padding: 5px;
+  }
+
+  .table-body thead th:nth-child(2),
+  .table-body thead th:nth-child(5),
+  .table-body tbody tr td:nth-child(2),
+  .table-body tbody tr td:nth-child(3),
+  .table-body tbody tr td:nth-child(6) {
+    display: none;
+  }
+
+  .table-body tbody tr td:nth-child(4) {
+    text-align: center;
+  }
+
+  .bot {
+    // flex-direction: column;
+    // align-items: center;
+    // gap: 15px;
+    display: none;
+  }
 }

@@ -64,21 +64,14 @@ export class HomeComponent {
           id: 4,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Cartão de Crédito','Compra online'],
+          detalhes: ['Cartão de Crédito', 'Compra online'],
           valor: -300.00
         },
         {
           id: 5,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta Corrente','Salário'],
-          valor: 3700.00
-        },
-        {
-          id: 5,
-          tipo: 'entrada',
-          data: new Date(),
-          detalhes: ['Conta Corrente','Salário'],
+          detalhes: ['Conta Corrente', 'Salário'],
           valor: 3700.00
         }
       ],
@@ -103,5 +96,35 @@ export class HomeComponent {
 
   }
 
+  ngOnInit(): void {
+    const detalhes = document.querySelector('.detalhes') as HTMLTableCellElement;
+
+    function atualizarColspan() {
+      if (window.innerWidth <= 735) {
+        detalhes.colSpan = 1;
+      } else {
+        detalhes.colSpan = 2;
+      }
+
+    }
+
+    // Chama a função quando a página é carregada e quando a janela é redimensionada
+    window.addEventListener('load', atualizarColspan);
+    window.addEventListener('resize', atualizarColspan);
+  }
+
+
+
+
+
+
+
+
+
 
 }
+
+
+
+
+
