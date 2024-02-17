@@ -70,9 +70,24 @@
   justify-content: space-around;
 }
 
-.sidebar a:hover {
+.sidebar .side-mid svg path {
+  fill: #fff;
+}
+
+.iconpix div {
+  margin-bottom: -30px;
+}
+
+.iconpix span {
+  position: relative;
+  top: -30px;
+  left: 30px;
+}
+
+.sidebar a:hover,
+.sidebar a:hover svg path {
   color: var(--amarelo);
-  // background: #fff;
+  fill: var(--amarelo);
 }
 
 .porquin {
