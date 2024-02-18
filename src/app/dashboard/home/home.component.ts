@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FooterComponent } from "../../components/footer/footer.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    standalone: true,
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss',
+    imports: [CommonModule, FooterComponent, FormsModule]
 })
 export class HomeComponent {
 
@@ -32,6 +34,7 @@ export class HomeComponent {
   };
 
   cumprimento: string;
+  menuIconChecked = false;
 
   constructor() {
     this.user = {

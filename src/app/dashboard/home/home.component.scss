@@ -372,11 +372,19 @@ table {
   padding-bottom: 15px;
 }
 
+app-footer {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 @media screen and (max-height: 785px) {
   .bot {
     display: none;
   }
-  .table{
+
+  .table {
     margin-bottom: 10px;
   }
 }
@@ -402,6 +410,13 @@ table {
   .cards {
     gap: 2%
   }
+
+  .sidebar-active {
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 @media screen and (max-width: 735px) {
@@ -418,9 +433,6 @@ table {
     grid-column: span 1;
   }
 
-  // .table-body thead th:first-child {
-  //   width: 50px;
-  // }
   .table-body tbody tr td {
     padding: 5px;
   }
@@ -438,9 +450,14 @@ table {
   }
 
   .bot {
-    // flex-direction: column;
-    // align-items: center;
-    // gap: 15px;
     display: none;
   }
+}
+
+@media screen and (max-width: 350px) {
+
+  app-footer {
+    display: block;
+  }
+
 }
