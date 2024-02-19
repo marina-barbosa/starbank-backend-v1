@@ -1,15 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-    selector: 'app-home',
-    standalone: true,
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss',
-    imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet]
+  selector: 'app-home',
+  standalone: true,
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
+  imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet]
 })
 export class HomeComponent {
 
@@ -37,8 +37,19 @@ export class HomeComponent {
   cumprimento: string;
   menuIconChecked = false;
 
-  constructor() {
+  isRotated = false;
+
+  toggleRotation(): void {
+    this.isRotated = !this.isRotated;
+  }
+
+
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+
+
     this.user = {
+
       name: 'Admin',
       saldoTotal: 854500,
       momento: new Date(),
@@ -115,7 +126,10 @@ export class HomeComponent {
     // Chama a função quando a página é carregada e quando a janela é redimensionada
     window.addEventListener('load', atualizarColspan);
     window.addEventListener('resize', atualizarColspan);
+
   }
+
+
 
 
 

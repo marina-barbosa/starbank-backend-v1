@@ -184,6 +184,23 @@
   transform: rotate(-50deg);
 }
 
+.btn-card{
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #ddd;
+  color: #222222;
+  border: 1px solid #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  top: 170px;
+  left: 155px;
+  display: none;
+}
+
 
 .cards {
   display: flex;
@@ -425,9 +442,38 @@ app-footer {
     justify-content: space-evenly;
   }
 
-  .cards .card:nth-child(2) {
-    display: none;
+  .btn-card{
+    display: flex;
   }
+
+  .cards {
+    position: relative;
+    top: -120px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+  }
+  .cards.rotated {
+    transform: rotateY(180deg);
+  }
+  // .cards:hover{
+  //   transform: rotateY(180deg);
+  // }
+
+  .cards .card:nth-child(1) {
+    background: #eee;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  .cards .card:nth-child(2) {
+    background: #eee;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+
+  // .cards .card:nth-child(2) {
+  //   display: none;
+  // }
 
   .table-body table thead .detalhes {
     grid-column: span 1;

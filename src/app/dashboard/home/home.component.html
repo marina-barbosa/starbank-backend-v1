@@ -39,10 +39,11 @@
           <span></span>
           <span></span>
         </label>
-      <div class="cards">
+      <div class="cards" [class.rotated]="isRotated">
         <div class="card">
           <h2>Conta</h2>
           <div class="conta">
+            <!-- <div>{{user.name}}</div> -->
             <div>{{user.name}}</div>
             <div>
               <p>Saldo Total</p>
@@ -72,6 +73,7 @@
             </div>
           </div>
         </div>
+        <a (click)="toggleRotation()" class="btn-card" ><i class="bi bi-reply-fill"></i></a>
       </div>
       <div class="table">
         <div class="title">
