@@ -21,10 +21,11 @@ Welcome to the project under development by the Star Tech team for Sharp Coders'
 
 ## Layout
 
-![Home](colocarCaminhoImagem)
-![Login](colocarCaminhoImagem)
-![Registration](colocarCaminhoImagem)
-![Transaction history](colocarCaminhoImagem)
+<img src="src/assets/home.jpeg" alt="Home" style="width:600px;"/>
+<img src="src/assets/login.jpeg" alt="Login" style="width:600px;"/>
+<img src="src/assets/cadastro.jpeg" alt="Registration" style="width:600px;"/>
+<img src="src/assets/areaDoUsuario.jpeg" alt="User space" style="width:600px;"/>
+<img src="colocarCaminhoImagem" alt="Transaction history" style="width:600px;"/>
 
 ## Demonstration
 
