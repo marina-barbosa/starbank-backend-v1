@@ -1,103 +1,40 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { CentralComponent } from '../central/central.component';
+import { TransacoesComponent } from '../transacoes/transacoes.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet]
+  imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet, CentralComponent, TransacoesComponent]
 })
 export class HomeComponent {
 
   user: {
     name: string,
-    saldoTotal: number,
     momento: Date,
-    transacoes: {
-      id: number,
-      tipo: string,
-      data: Date,
-      detalhes: string[],
-      valor: number
-    }[],
-    avatar: string,
-    cartao: {
-      numero: string,
-      titular: string,
-      validade: string,
-      cvv: string,
-      tipo: string
-    }
+    avatar: string
   };
 
   cumprimento: string;
+
   menuIconChecked = false;
 
-  isRotated = false;
-
-  toggleRotation(): void {
-    this.isRotated = !this.isRotated;
-  }
+  selectedComponent: string = 'central';
 
 
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-
+  constructor() {
 
     this.user = {
-
       name: 'Admin',
-      saldoTotal: 854500,
       momento: new Date(),
-      transacoes: [
-        {
-          id: 1,
-          tipo: 'entrada',
-          data: new Date(),
-          detalhes: ['Conta corrente', 'Reembolso'],
-          valor: 500.00
-        },
-        {
-          id: 2,
-          tipo: 'saída',
-          data: new Date(),
-          detalhes: ['Conta corrente', 'Saque ATM'],
-          valor: -200.00
-        },
-        {
-          id: 3,
-          tipo: 'saída',
-          data: new Date(),
-          detalhes: ['Lorem Ipsum', 'Compra Online'],
-          valor: -300.00
-        },
-        {
-          id: 4,
-          tipo: 'saída',
-          data: new Date(),
-          detalhes: ['Cartão de Crédito', 'Compra online'],
-          valor: -300.00
-        },
-        {
-          id: 5,
-          tipo: 'entrada',
-          data: new Date(),
-          detalhes: ['Conta Corrente', 'Salário'],
-          valor: 3700.00
-        }
-      ],
-      avatar: '../../../assets/perfil.png',
-      cartao: {
-        numero: '1234 5678 9012 3456',
-        titular: 'Admin',
-        validade: '12/2000',
-        cvv: '689',
-        tipo: 'Mastercard'
-      }
+      avatar: '../../../assets/perfil.png'
     };
 
     const horaAtual = this.user.momento.getHours();
@@ -111,30 +48,13 @@ export class HomeComponent {
 
   }
 
-  ngOnInit(): void {
-    const detalhes = document.querySelector('.detalhes') as HTMLTableCellElement;
-
-    function atualizarColspan() {
-      if (window.innerWidth <= 735) {
-        detalhes.colSpan = 1;
-      } else {
-        detalhes.colSpan = 2;
-      }
-
+  chooseComponent($event: any) {
+    if ($event.srcElement.id === 'central') {
+      this.selectedComponent = 'central';
+    } else if ($event.srcElement.id === 'transacoes') {
+      this.selectedComponent = 'transacoes';
     }
-
-    // Chama a função quando a página é carregada e quando a janela é redimensionada
-    window.addEventListener('load', atualizarColspan);
-    window.addEventListener('resize', atualizarColspan);
-
   }
-
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,46 @@
+<div class="table">
+  <div class="title">
+    <h3>Histórico de Transações</h3>
+    <span><a routerLink="/transacoes">Ver mais</a></span>
+  </div>
+  <div class="table-body">
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Data</th>
+          <th class="detalhes">Detalhes</th>
+          <th>Valor</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transacao of paginatedTransactions">
+          <td>
+            <div [ngStyle]="{'background': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}"
+              *ngIf="transacao.tipo === 'entrada'"><i class="bi bi-arrow-down-up"></i></div>
+            <div [ngStyle]="{'background': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}"
+              *ngIf="transacao.tipo === 'saída'"><i class="bi bi-credit-card"></i></div>
+          </td>
+          <td>{{ transacao.data | date:'dd/MM/yyyy' }}</td>
+          <td>{{ transacao.detalhes[0] }}</td>
+          <td>{{ transacao.detalhes[1] }}</td>
+          <td [ngStyle]="{'color': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}">R$ {{
+            (transacao.valor).toFixed(2) }}</td>
+
+          <td><i class="bi bi-three-dots-vertical"></i></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="page-btn">
+    <button (click)="goToPreviousPage()">Anterior</button>
+    <button>{{ currentPage }}</button>
+    <button (click)="goToNextPage()">Próximo</button>
+  </div>
+
+</div>
+<div class="bot">
+  <span>Desenvolvido por StarTech</span><span>Política de Ptrivacidade | Termos de Serviço</span>
+</div>
