@@ -1,7 +1,19 @@
 <div class="table">
   <div class="title">
     <h3>Histórico de Transações</h3>
-    <span><a routerLink="/transacoes">Ver mais</a></span>
+    <div>
+      <p>Filtrar por:</p>
+      <select id="filtro-transacoes">
+        <option value="todas">Todas</option>
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+        <!-- <option value="hoje">Hoje</option>
+        <option value="ontem">Ontem</option>
+        <option value="ultima-semana">Última Semana</option>
+        <option value="ultimo-mes">Último Mês</option>
+        <option value="personalizado">Personalizado</option> -->
+      </select>
+    </div>
   </div>
   <div class="table-body">
     <table>

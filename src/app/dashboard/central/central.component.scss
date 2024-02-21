@@ -1,5 +1,3 @@
-
-
 .menu-icon {
   width: 50px;
   height: 45px;
@@ -52,7 +50,7 @@
   transform: rotate(-50deg);
 }
 
-.btn-card{
+.btn-card {
   width: 40px;
   height: 40px;
   border-radius: 30px;
@@ -173,6 +171,10 @@
   font-size: 20px;
 }
 
+.table .title span a {
+  color: #222;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -283,7 +285,7 @@ table {
 
 @media screen and (max-width: 735px) {
 
-  .btn-card{
+  .btn-card {
     display: flex;
   }
 
@@ -293,6 +295,7 @@ table {
     transform-style: preserve-3d;
     transition: all 0.5s ease;
   }
+
   .cards.rotated {
     transform: rotateY(180deg);
   }
@@ -302,6 +305,7 @@ table {
     position: absolute;
     backface-visibility: hidden;
   }
+
   .cards .card:nth-child(2) {
     background: #eee;
     position: absolute;
@@ -310,7 +314,7 @@ table {
   }
 
   .table {
-  margin-bottom: -100px;
+    margin-bottom: -100px;
   }
 
   .table-body table thead .detalhes {
@@ -337,4 +341,3 @@ table {
     display: none;
   }
 }
-
