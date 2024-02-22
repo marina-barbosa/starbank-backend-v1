@@ -4,14 +4,25 @@
 
 
 :root {
+  --primaria: #FF725E;
+  --secundaria: #52596D;
+
   --amarelo: #F3BE73;
   --preto: #222222;
   --verde: #00DDA3;
   --vermelho: #FF3157;
   --cinza: #52596D;
+  --cinza2: #c4c4c4;
+
+  --laranja: #FF725E;
+  --laranja20: #ffd5cf;
+  --branco: #eee;
+  --andromeda: #23262E;
+
   --clr: #000000;
   --white: #fff;
   --color-base: #ecc270;
+
 }
 
 * {
@@ -23,13 +34,14 @@
 }
 
 body {
-  background: #eee;
+  background: var(--cinza2);
   width: 100vw;
   height: 100vh;
   font-family: Poppins;
   display: flex;
   justify-content: center;
   position: relative;
+  // align-items: start;
 }
 
 
