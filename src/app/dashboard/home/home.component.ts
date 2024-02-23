@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { CentralComponent } from '../central/central.component';
 import { TransacoesComponent } from '../transacoes/transacoes.component';
 
@@ -11,7 +11,7 @@ import { TransacoesComponent } from '../transacoes/transacoes.component';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet, CentralComponent, TransacoesComponent]
+  imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet, CentralComponent, TransacoesComponent, RouterLink]
 })
 export class HomeComponent {
 
