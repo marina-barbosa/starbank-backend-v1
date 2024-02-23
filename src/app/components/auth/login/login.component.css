@@ -1,0 +1,58 @@
+body {
+    background-image: url('/assets/images/stars_2.png');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-button{
+    background-color: #f3be73;
+    border: #f3be73;
+    color: #fff;
+}
+
+h3{
+    color: #f3be73;
+    font-weight: 900;
+}
+
+h6{
+    color: grey;
+}
+
+.link-orange{
+    color: #f3be73;
+}
+h1{
+    color: #fff;
+    font-weight: 900;
+    font-family: 'Khand';
+}
+
+p{
+    color: #fff;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.login-container {
+    max-width: 350px;
+    margin: auto; 
+}
+
+.logo-rocket {
+    text-align: center; 
+    margin-top: 20px; 
+    max-width: 80%; 
+}
