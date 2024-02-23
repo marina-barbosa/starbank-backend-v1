@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login | StarPay</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 order-md-2">
+            <div class="container login-container mb-4">
+                <div class="text-center">
+                    <h3>Conecte-se</h3>
+                    <h6>Acesse sua conta</h6>
+                </div>
+                <div class="card-body">
+                    <form>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="cpf" placeholder="CPF">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" placeholder="Senha">
+                            <a routerLink="update_password" class="link-orange">Esqueceu sua senha?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-block color-button">Enviar</button>
+                        <p class="text-card">Ainda não tem conta?
+                            <a routerLink="/register" class="link-orange">Cadastre-se</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <div class="logo-rocket">
+                <h1>Star Bank</h1>
+                <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
+                <p>Sua jornada financeira, guiada pelo brilho da inovação.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
