@@ -11,10 +11,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  
+
   users:User[] = [];
 
   formulario = new FormGroup({

@@ -8,7 +8,7 @@ import { FormControl, FormGroup, FormsModule } from '@angular/forms';
   standalone: true,
   imports: [RouterLink, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   cpf: string = '';
