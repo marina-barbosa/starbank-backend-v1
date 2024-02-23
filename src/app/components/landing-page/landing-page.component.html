@@ -1,0 +1,237 @@
+<div class="container">
+
+  <nav>
+
+    <div class="logo">
+      <i class="fa-solid fa-cube"></i><span> Star</span>Bank
+    </div>
+
+    <ul class="navbar">
+      <li><a>Pra você</a></li>
+      <li><a>Serviços</a></li>
+      <li><a>Open Finance</a></li>
+      <li><a>Educação Financeira</a></li>
+      <li><a>Central de Atendimento</a></li>
+    </ul>
+
+    <button>
+      Login <i class="fa-regular fa-user"></i>
+    </button>
+  </nav>
+
+  <section class="banner">
+    <div class="banner-left">
+      <div class="texto">
+        <h1>Boas-vindas ao <span>Star Bank.</span></h1>
+        <p>Sua jornada financeira, guiada pelo brilho da inovação.</p>
+        <button class="btn">Abra uma conta <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="banner-right">
+      <div>
+        <img src="../../../assets/landingPage/cardebolinha.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="slide-logo">
+    <img class="mxm" src="../../../assets/landingPage/mxm.svg" alt="" srcset="">
+    <img class="ima" src="../../../assets/landingPage/logo-ima-tech-white.webp" alt="" srcset="">
+    <img class="mxm" src="../../../assets/landingPage/mxm.svg" alt="" srcset="">
+    <img class="ima" src="../../../assets/landingPage/logo-ima-tech-black.webp" alt="" srcset="">
+    <img class="mxm" src="../../../assets/landingPage/mxm.svg" alt="" srcset="">
+    <img class="ima" src="../../../assets/landingPage/logo-ima-tech-white.webp" alt="" srcset="">
+    <img class="mxm" src="../../../assets/landingPage/mxm.svg" alt="" srcset="">
+    <img class="ima" src="../../../assets/landingPage/logo-ima-tech-black.webp" alt="" srcset="">
+  </section>
+
+  <section class="servicos">
+    <h1>Nossos Serviços</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam, dapibus mattis vel feugiat erat tortor eleifend.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <img src="../../../assets/landingPage/pexels-dinheiro.jpg" alt="" srcset="">
+        <div>FAÇA SEU PIX <i class="bi bi-arrow-right-circle-fill"></i></div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/landingPage/pexels-casa.jpg" alt="" srcset="">
+        <div>PAGUE SUAS CONTAS <i class="bi bi-arrow-right-circle-fill"></i></div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/landingPage/pexels-porquin.jpg" alt="" srcset="">
+        <div>Lorem ipsum <i class="bi bi-arrow-right-circle-fill"></i></div>
+      </div>
+      <div class="card">
+        <img src="../../../assets/landingPage/pexels-cartao.jpg" alt="" srcset="">
+        <div>Lorem ipsum <i class="bi bi-arrow-right-circle-fill"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-section">
+    <div class="card-left">
+      <div class="texto">
+        <h1>Personalize seu cartão do jeito que você quiser!</h1>
+        <p>Eleve sua experiência financeira com nossos cartões virtuais. Transações seguras e flexíveis, disponíveis
+          em qualquer lugar. Com a Star Pay, a modernidade está ao alcance dos seus dedos.</p>
+        <button class="btn">Abra uma conta <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="card-right">
+      <div>
+        <img src="../../../assets/landingPage/trescards.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="paralax">
+    <div class="paralax-top">
+      <div class="top-left">
+        <img src="../../../assets/landingPage/picture-cel.png" alt="" srcset="">
+      </div>
+      <div class="top-right">
+        <div class="texto">
+          <h1>Abra sua conta <span>gratuita</span>!</h1>
+          <p>Envie e receba dinheiro de forma mais prática e rápida.
+            Faça Pix, TEDs e transferências com agendamento para todos os bancos sem pagar nada.</p>
+        </div>
+        <div class="lista">
+          <h3>Seu dinheiro rendendo mais</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+        </div>
+        <div class="lista">
+          <h3>Conta digital 100% grátis</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+        </div>
+        <div class="lista">
+          <h3>Cartão sem anuidade</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <img src="../../../assets/landingPage/aspasduplas.png" alt="" srcset="">
+        <p>"Great session! Dani was super helpful. She shared some practical advice on how can lorem ip we go about refining our service offerings."</p>
+        <div class="person">
+          <img src="../../../assets/landingPage/perfil2.png" alt="" srcset="">
+          <div>
+            <p>Hadid Khan</p>
+            <p>UIUX Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </section>
+
+  <section class="faq">
+
+    <div class="faq-container">
+      <h1>Ficou alguma dúvida?</h1>
+
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let item of accordionItems">
+          <div class="accordion-title" (click)="toggleAccordion(item)">
+            <h3>{{ item.title }}</h3>
+            <i class="fa-solid fa-plus"></i>
+          </div>
+
+          <div class="accordion-content" [class.active]="item.active">
+            <p>{{ item.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="cta-app">
+    <div class="app-left">
+      <div class="texto">
+        <h1>Easy Way to manage your finances</h1>
+        <p>Easy to use mobile app that support on android and ios.</p>
+        <div class="badges">
+          <img src="../../../assets/landingPage/App_Store_Badge.svg" alt="" srcset="">
+          <img src="../../../assets/landingPage/google-play-badge.png" alt="" srcset="">
+        </div>
+      </div>
+    </div>
+    <div class="app-right">
+      <div>
+        <img src="../../../assets/landingPage/mock-cel.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="texto">
+      <h2>Receba novidades!</h2>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+      <form action="/subscribe" method="post">
+        <div class="input-group">
+          <input type="email" name="email" placeholder=" Seu email" required>
+          <button type="submit">Inscreva-se</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="logo">
+          <i class="fa-solid fa-cube"></i><span> Star</span>Bank
+        </div>
+        <p>Discover the power of our secure and rewarding credit cards</p>
+      </div>
+
+      <div>
+        <h5>Section</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Section</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Section</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bot">
+      <p>&copy; 2024 Company, Inc. All rights reserved.</p>
+      <ul>
+        <li><a href="#">icon</a></li>
+        <li><a href="#">icon</a></li>
+        <li><a href="#">icon</a></li>
+      </ul>
+    </div>
+  </footer>
+
+
+</div>

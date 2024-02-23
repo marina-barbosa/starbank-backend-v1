@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="faixa-preta"></div>
+
+  <div class="top-container">
+    <div class="logo"><span>Star</span> Bank</div>
+    <div class="top-right">
+      <div class="saudacao">{{cumprimento}}, {{user.name}}</div>
+      <div class="top-botoes">
+        <i class="bi bi-bell"></i>
+        <i class="bi bi-sun"></i>
+        <img src="{{user.avatar}}" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="sidebar" [ngClass]="{'sidebar-active': menuIconChecked}">
+      <img class="porquin" src="../../../assets/porquin.png">
+      <div class="side-mid">
+        <a id="central" (click)="chooseComponent($event); menuIconChecked = false"><i class="bi bi-wallet2"></i>Conta</a>
+        <a (click)="menuIconChecked = false"><i class="fa-brands fa-pix"></i>Pix</a>
+        <a id="transacoes" (click)="chooseComponent($event); menuIconChecked = false"><i class="bi bi-arrow-down-up"></i>Transações</a>
+        <a (click)="menuIconChecked = false"><i class="bi bi-upc-scan"></i>Pagamentos</a>
+        <a (click)="menuIconChecked = false"><i class="bi bi-credit-card"></i>Cartão</a>
+        <a (click)="menuIconChecked = false"><i class="bi bi-piggy-bank"></i>Poupança</a>
+      </div>
+      <div class="side-bot">
+        <a (click)="menuIconChecked = false"><i class="bi bi-gear"></i>Configuração</a>
+        <a (click)="menuIconChecked = false"><i class="bi bi-person-circle"></i>Perfil</a>
+        <a routerLink="/home"><i class="bi bi-box-arrow-left"></i>Sair</a>
+        <img src="../../../assets/logo-startech.png" alt="" srcset="">
+      </div>
+    </div>
+
+    <label for="menu-icon" class="menu-icon">
+      <input id="menu-icon" type="checkbox" [(ngModel)]="menuIconChecked"/>
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ng-container [ngSwitch]="selectedComponent">
+      <app-central class="right" *ngSwitchCase="'central'"></app-central>
+      <app-transacoes class="right" *ngSwitchCase="'transacoes'"></app-transacoes>
+      <app-central class="right" *ngSwitchCaseDefault></app-central>
+    </ng-container>
+
+
+    <app-footer></app-footer>
+  </div>
+
+</div>
