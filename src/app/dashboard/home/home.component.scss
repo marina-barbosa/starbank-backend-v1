@@ -2,16 +2,14 @@
   max-width: 1600px;
   // max-width: 1440px;
   max-height: 1024px;
-  // width: 75vw;
   width: 100vw;
   height: 100%;
-  // height: auto;
   background: transparent;
-  // border: 1px solid green;
 }
 
 .faixa-preta {
-  background: var(--preto);
+  background-image: url('../../../assets/pexels-estrelado2.png');
+  background-size: cover;
   height: 70px;
   width: 100%;
   position: absolute;
@@ -65,7 +63,7 @@
   color: #fff;
   width: 230px;
   font-family: Khand;
-  background: var(--preto);
+  background: var(--clr);
   display: flex;
   flex-direction: column;
   align-items: center;
