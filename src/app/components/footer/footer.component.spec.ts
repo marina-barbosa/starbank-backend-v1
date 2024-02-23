@@ -11,7 +11,7 @@ describe('FooterComponent', () => {
       imports: [FooterComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -21,3 +21,4 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
