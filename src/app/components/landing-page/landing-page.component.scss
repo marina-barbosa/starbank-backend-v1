@@ -252,7 +252,7 @@ nav button i {
 .paralax {
   width: 100%;
   height: 1300px;
-  background-image: url('../../../assets/landingPage/pexels-bank.jpg');
+  background-image: url('../../../assets/landingPage/pexels-bank.png');
   background-size: cover;
   background-attachment: fixed;
   /* filter: blur(5px); */
@@ -264,7 +264,7 @@ nav button i {
 .paralax .paralax-top {
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: px;
 }
 
 .paralax .top-right {
@@ -279,11 +279,18 @@ nav button i {
   align-items: center;
 }
 
-.paralax .texto,
+.paralax .texto {
+  max-width: 500px;
+  color: --preto;
+  font-size: 25px;
+  padding: 5px;
+}
+
 .paralax .lista {
   max-width: 500px;
-  color: var(--branco);
-  font-size: 20px;
+  color: --preto;
+  font-size: 25px;
+  padding: 5px;
 }
 
 .paralax .cards {
@@ -520,9 +527,10 @@ footer .footer-bot i {
 
 
 @media screen and (max-width: 1300px) {
-  .servicos{
+  .servicos {
     height: auto;
   }
+
   .servicos .cards {
     flex-direction: column;
   }
@@ -548,7 +556,7 @@ footer .footer-bot i {
     width: 90%;
   }
 
-  .banner{
+  .banner {
     height: auto;
   }
 
@@ -564,12 +572,12 @@ footer .footer-bot i {
     margin: 50px 20px;
   }
 
-  .banner-right div{
+  .banner-right div {
     display: flex;
     justify-content: end;
   }
 
-  .banner-right img{
+  .banner-right img {
     width: 90%;
     margin-bottom: 30px;
   }
@@ -664,23 +672,25 @@ footer .footer-bot i {
     margin-bottom: 10px;
   }
 
-  footer{
+  footer {
     height: auto;
   }
 
-  .footer-container{
+  .footer-container {
     flex-direction: column;
     gap: 30px;
     padding: 30px 0;
   }
 
-  .footer-container div{
+  .footer-container div {
     text-align: center;
   }
-  .footer-bot ul li{
+
+  .footer-bot ul li {
     display: none;
   }
-  .footer-bot{
+
+  .footer-bot {
     height: 150px;
     flex-direction: column;
     gap: 30px;
