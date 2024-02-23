@@ -23,7 +23,6 @@
           <th>Data</th>
           <th class="detalhes">Detalhes</th>
           <th>Valor</th>
-          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -35,12 +34,10 @@
               *ngIf="transacao.tipo === 'saída'"><i class="bi bi-credit-card"></i></div>
           </td>
           <td>{{ transacao.data | date:'dd/MM/yyyy' }}</td>
-          <td>{{ transacao.detalhes[0] }}</td>
-          <td>{{ transacao.detalhes[1] }}</td>
+          <td>{{ transacao.detalhes }}</td>
           <td [ngStyle]="{'color': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}">R$ {{
             (transacao.valor).toFixed(2) }}</td>
 
-          <td><i class="bi bi-three-dots-vertical"></i></td>
         </tr>
       </tbody>
     </table>

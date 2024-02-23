@@ -22,7 +22,7 @@ export class TransacoesComponent {
       id: number,
       tipo: string,
       data: Date,
-      detalhes: string[],
+      detalhes: string,
       valor: number
     }[],
     avatar: string,
@@ -80,105 +80,105 @@ export class TransacoesComponent {
           id: 1,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta corrente', 'Reembolso'],
+          detalhes: 'Reembolso',
           valor: 500.00
         },
         {
           id: 2,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Conta corrente', 'Saque ATM'],
+          detalhes: 'Saque ATM',
           valor: -200.00
         },
         {
           id: 3,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Lorem Ipsum', 'Compra Online'],
+          detalhes: 'Compra Online',
           valor: -300.00
         },
         {
           id: 4,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Cartão de Crédito', 'Compra online'],
+          detalhes: 'Compra online',
           valor: -300.00
         },
         {
           id: 5,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta Corrente', 'Salário'],
+          detalhes: 'Salário',
           valor: 3700.00
         },
         {
           id: 6,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta corrente', 'Reembolso 2'],
+          detalhes: 'Reembolso 2',
           valor: 500.00
         },
         {
           id: 7,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Conta corrente', 'Saque ATM 2'],
+          detalhes: 'Saque ATM 2',
           valor: -200.00
         },
         {
           id: 8,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Lorem Ipsum', 'Compra Online 2'],
+          detalhes: 'Compra Online 2',
           valor: -300.00
         },
         {
           id: 9,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Cartão de Crédito', 'Compra online 2'],
+          detalhes: 'Compra online 2',
           valor: -300.00
         },
         {
           id: 10,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta Corrente', 'Salário 2'],
+          detalhes: 'Salário 2',
           valor: 3700.00
         },
         {
           id: 11,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta corrente', 'Reembolso 3'],
+          detalhes: 'Reembolso 3',
           valor: 500.00
         },
         {
           id: 12,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Conta corrente', 'Saque ATM 3'],
+          detalhes: 'Saque ATM 3',
           valor: -200.00
         },
         {
           id: 13,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Lorem Ipsum', 'Compra Online 3'],
+          detalhes: 'Compra Online 3',
           valor: -300.00
         },
         {
           id: 14,
           tipo: 'saída',
           data: new Date(),
-          detalhes: ['Cartão de Crédito', 'Compra online 3'],
+          detalhes: 'Compra online 3',
           valor: -300.00
         },
         {
           id: 15,
           tipo: 'entrada',
           data: new Date(),
-          detalhes: ['Conta Corrente', 'Salário 3'],
+          detalhes: 'Salário 3',
           valor: 3700.00
         }
       ],
@@ -193,24 +193,6 @@ export class TransacoesComponent {
     };
 
   }
-
-  ngOnInit(): void {
-    const detalhes = document.querySelector('.detalhes') as HTMLTableCellElement;
-
-    function atualizarColspan() {
-      if (window.innerWidth <= 735) {
-        detalhes.colSpan = 1;
-      } else {
-        detalhes.colSpan = 2;
-      }
-
-    }
-
-    window.addEventListener('load', atualizarColspan);
-    window.addEventListener('resize', atualizarColspan);
-
-  }
-
 
 
 
