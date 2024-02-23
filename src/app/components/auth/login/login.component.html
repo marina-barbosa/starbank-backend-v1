@@ -9,10 +9,10 @@
 
 <div class="body container-fluid">
     <div class="row">
-        <div class="col-md-6 order-md-2">
+        <div class="order-md-2">
             <div class="container login-container mb-4">
                 <div class="text-center">
-                    <h3>Conecte-se</h3>
+                    <h3><span>Star</span> Bank</h3>
                     <h6>Acesse sua conta</h6>
                 </div>
                 <div class="card-body">
@@ -24,24 +24,34 @@
 
                         <div class="form-group">
                             <input type="password" class="form-control" id="password" placeholder="Senha">
-                            <a routerLink="update_password" class="link-orange">Esqueceu sua senha?</a>
+                            <a class="links">Esqueceu sua senha?</a>
                         </div>
 
                         <button routerLink="/home" class="btn btn-block color-button">Enviar</button>
-                        <p class="text-card">Ainda não tem conta?
-                            <a routerLink="/register" class="link-orange">Cadastre-se</a>
+                        <p class="text-card">
+                            <a routerLink="/register" class="links">Ainda não tem conta? <span>Cadastre-se</span></a>
                         </p>
+                        <div>
+                          <ul>
+                            <li><i class="fa-brands fa-square-github"></i></li>
+                            <li><i class="fa-brands fa-linkedin"></i></li>
+                            <li><i class="fa-brands fa-instagram"></i></li>
+                          </ul>
+                        </div>
+                        <!-- <div>
+                          <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
+                        </div> -->
                     </form>
+                  </div>
                 </div>
-            </div>
+                <div class="footer">
+                  <p>
+                    copyright 2024 StarTech All Rights Reserved
+                  </p>
+                </div>
         </div>
-        <div class="col-md-6 order-md-1">
-            <div class="logo-rocket">
-                <h1>Star Bank</h1>
-                <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
-                <p>Sua jornada financeira, guiada pelo brilho da inovação.</p>
-            </div>
-        </div>
+
+        <!-- <p>Sua jornada financeira, guiada pelo brilho da inovação.</p> -->
     </div>
 </div>
 

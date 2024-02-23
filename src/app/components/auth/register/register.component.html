@@ -1,57 +1,57 @@
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login | StarPay</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Login | StarPay</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <div class="body container-fluid">
-    <div class="row">
-        <div class="col-md-6 order-md-2">
-            <div class="container login-container mb-4">
-                <div class="text-center">
-                    <h3>Cadastrar</h3>
-                </div>
-                <div class="card-body">
-                    <form [formGroup]="formulario">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="fullName" formControlName="fullName"
-                                placeholder="Nome completo">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="CPF">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="phone" formControlName="phone"
-                                placeholder="Telefone">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="address" formControlName="address"
-                                placeholder="Endereço">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="password" formControlName="password"
-                                placeholder="Senha">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="confirmPassword"
-                                formControlName="confirmPassword" placeholder="Confirmar senha">
-                        </div>
-
-                        <button type="submit" (click)="registerUser()"
-                            class="btn btn-block color-button">Enviar</button>
-                    </form>
-                </div>
-            </div>
+  <div class="row">
+    <div class="order-md-2">
+      <div class="container login-container mb-4">
+        <div class="text-center">
+          <h3>Cadastrar</h3>
         </div>
-        <div class="col-md-6 order-md-1">
+        <div class="card-body">
+          <form [formGroup]="formulario">
+            <div class="form-group">
+              <input type="text" class="form-control" id="fullName" formControlName="fullName"
+                placeholder="Nome completo">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="CPF">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Telefone">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="address" formControlName="address" placeholder="Endereço">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="password" formControlName="password" placeholder="Senha">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
+                placeholder="Confirmar senha">
+            </div>
+
+            <button type="submit" (click)="registerUser()" class="btn btn-block color-button">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+        <p>
+          copyright 2024 StarTech All Rights Reserved
+        </p>
+      </div>
+    </div>
+    <!-- <div class="col-md-6 order-md-1">
             <div class="logo-rocket">
                 <h1 class="h1">Star Bank</h1>
                 <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
                 <p>Sua jornada financeira, guiada pelo brilho da inovação.</p>
             </div>
         </div>
-    </div>
-</div>
+    </div> -->
 
+  </div>

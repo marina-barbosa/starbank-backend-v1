@@ -1,59 +1,85 @@
 .body {
-    background-image: url('/assets/images/stars_2.png');
-    background-size: cover;
-    background-position: center;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background: var(--branco);
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.color-button{
-    background-color: #f3be73;
-    border: #f3be73;
-    color: #fff;
+.color-button {
+  background-color: var(--preto);
+  border: var(--preto);
+  color: #fff;
 }
 
-h3{
-    color: #f3be73;
-    font-weight: 900;
+h3 {
+  color: var(--preto);
+  font-weight: 500;
 }
 
-h6{
-    color: grey;
+.text-center span {
+  font-weight: 900;
 }
 
-.link-orange{
-    color: #f3be73;
-}
-h1{
-    color: #fff;
-    font-weight: 900;
-    font-family: 'Khand';
+.text-card span {
+  font-weight: bold;
 }
 
-p{
-    color: #fff;
+h6 {
+  color: var(--preto);
+}
+
+.links {
+  color: var(--preto);
+}
+
+p {
+  color: #fff;
+}
+
+button{
+  margin-bottom: 10px;
 }
 
 .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: auto;
+  background-color: #F7D78C;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
 .login-container {
-    max-width: 350px;
-    margin: auto;
+  max-width: 350px;
+  margin: auto;
 }
 
 .logo-rocket {
-    text-align: center;
-    margin-top: 20px;
-    max-width: 80%;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 80%;
+}
+
+.card-body input {
+  border: 1px solid var(--preto);
+}
+
+body > app-root > app-login > div > div > div > div > div.card-body > form > div:nth-child(2) > a{
+  padding-top: 10px;
+  text-align: right;
+}
+
+.card-body ul {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.footer p{
+  text-align: center;
+  color: var(--preto);
 }

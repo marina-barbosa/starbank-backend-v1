@@ -1,7 +1,5 @@
 .body {
-    background-image: url('/assets/images/stars_2.png');
-    background-size: cover;
-    background-position: center;
+    background: var(--branco)r;
     padding: 0;
     height: 100vh;
     width: 100vw;
@@ -12,7 +10,7 @@
 }
 
 h3 {
-    color: #f3be73;
+    color: var(--preto);
     font-weight: 900;
 }
 
@@ -21,8 +19,8 @@ h6 {
 }
 
 .color-button {
-    background-color: #f3be73;
-    border: #f3be73;
+    background-color: var(--preto);
+    border: var(--preto);
     color: #fff;
 }
 
@@ -37,13 +35,17 @@ p {
 }
 
 .container {
-    background-color: white;
+    width: 350px;
+    background-color: #F7D78C;
     padding: 5%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
     max-width: 70%; /* Ajuste a largura máxima conforme necessário */
     margin-left: 5%; /* Adicione uma margem à esquerda */
+}
+.container input{
+  border: 1px solid var(--preto);
 }
 
 .login-container {
@@ -58,6 +60,10 @@ p {
     margin-left: 5%; /* Adicione uma margem à esquerda */
 }
 
+.footer p{
+  text-align: center;
+  color: var(--preto);
+}
 
 
 
