@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-central',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet, CentralComponent],
+  imports: [CommonModule, FormsModule, RouterOutlet, CentralComponent, FooterComponent],
   templateUrl: './central.component.html',
   styleUrl: './central.component.scss'
 })

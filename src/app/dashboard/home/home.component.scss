@@ -186,13 +186,6 @@
   width: calc(100% - 230px);
 }
 
-app-footer {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 
 @media screen and (max-width: 1015px) {
 
@@ -224,12 +217,10 @@ app-footer {
     justify-content: space-evenly;
   }
 
-}
-
-@media screen and (max-width: 350px) {
-
-  app-footer {
-    display: block;
-  }
+  // app-footer {
+  //   display: block;
+  // }
 
 }
+
+
