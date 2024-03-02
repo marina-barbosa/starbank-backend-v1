@@ -184,6 +184,14 @@
   width: calc(100% - 230px);
 }
 
+footer {
+  display: none;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+
 
 @media screen and (max-width: 1015px) {
 
@@ -207,6 +215,12 @@
     width: 100vw;
     height: 100vh;
   }
+
+  footer {
+    display: flex;
+  }
+
+
 }
 
 @media screen and (max-width: 735px) {
@@ -215,10 +229,4 @@
     justify-content: space-evenly;
   }
 
-  // app-footer {
-  //   display: block;
-  // }
-
 }
-
-
