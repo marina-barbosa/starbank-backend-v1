@@ -1,55 +1,12 @@
 
-    <div class="navigation">
-      <ul>
-        <li class="list">
-          <a>
-            <span class="icon"><i class="fa-brands fa-pix"></i></span>
-            <span class="text">Pix</span>
-          </a>
-        </li>
-        <li class="list">
-          <a>
-            <span class="icon"><i class="fa-solid fa-wallet"></i></span>
-            <span class="text">Carteira</span>
-          </a>
-        </li>
-        <li class="list active">
-          <a>
-            <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
-            <span class="text">QR-Code</span>
-          </a>
-        </li>
-        <li class="list">
-          <a>
-            <span class="icon"><i class="fa-regular fa-credit-card"></i></span>
-            <span class="text">Cartão</span>
-          </a>
-        </li>
-        <li class="list">
-          <a>
-            <span class="icon" ><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
-            <span class="text">Transação</span>
-          </a>
-        </li>
-        <div class="indicator"></div>
-      </ul>
-    </div>
-    <script>
-      const list = document.querySelectorAll(".list");
-
-      function activeLink() {
-        list.forEach((item) => item.classList.remove("active"));
-        this.classList.add("active");
-      }
-      list.forEach((item) => item.addEventListener("click", activeLink));
-    </script>
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-
+<div class="navigation">
+  <ul>
+    <li *ngFor="let item of navigationItems" [ngClass]="{'active': item.active}"  (click)="onItemClick(item)">
+      <a [id]="item.id" (click)="chooseComponent($event)">
+        <span class="icon"><i class="{{ item.icon }}"></i></span>
+        <span class="text">{{ item.text }}</span>
+      </a>
+    </li>
+    <div class="indicator"></div>
+  </ul>
+</div>

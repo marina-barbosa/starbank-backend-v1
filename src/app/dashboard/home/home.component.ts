@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CentralComponent } from '../central/central.component';
 import { TransacoesComponent } from '../transacoes/transacoes.component';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { TransacoesComponent } from '../transacoes/transacoes.component';
   styleUrl: './home.component.scss',
   imports: [CommonModule, FooterComponent, FormsModule, RouterOutlet, CentralComponent, TransacoesComponent, RouterLink]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   user: {
     name: string,
@@ -29,7 +30,7 @@ export class HomeComponent {
 
 
 
-  constructor() {
+  constructor(private navigationService: NavigationService) {
 
     this.user = {
       name: 'Admin',
@@ -46,6 +47,12 @@ export class HomeComponent {
       this.cumprimento = 'Boa noite';
     }
 
+  }
+
+  ngOnInit(): void {
+    this.navigationService.selectedComponent$.subscribe(component => {
+      this.selectedComponent = component;
+    });
   }
 
   chooseComponent($event: any) {
