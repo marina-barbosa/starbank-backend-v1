@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit  {
       const { username, password } = this.loginForm.value;
 
       if (username === 'admin' && password === 'admin') {
-        if(this.showTour = true){
-          // abrir o componente modalTour
-          this.router.navigate(['/tour']);
-        } else {
-          this.router.navigate(['/home']);
-        }
+        this.router.navigate(['/lottie']);
+        // if(this.showTour = true){
+        //   // abrir o componente modalTour
+        //   this.router.navigate(['/tour']);
+        // } else {
+        //   this.router.navigate(['/home']);
+        // }
       } else {
         this.errorMessage = 'Credenciais inválidas.';
       }
