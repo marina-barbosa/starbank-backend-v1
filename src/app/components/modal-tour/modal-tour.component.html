@@ -1,0 +1,13 @@
+<div class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img [src]="currentImage" alt="Imagem">
+    <p>{{ currentMessage }}</p>
+    <button (click)="next()">Next</button>
+    <br>
+    <div>
+      <input type="checkbox" id="mostrarMensagem" [(ngModel)]="hideMessage">
+      <label for="mostrarMensagem"> Não mostrar esta mensagem novamente</label>
+    </div>
+  </div>
+</div>
