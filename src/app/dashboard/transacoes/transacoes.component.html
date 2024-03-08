@@ -22,7 +22,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let transacao of paginatedTransactions"> -->
         <tr *ngFor="let transacao of getVisibleTransactions()">
           <td>
             <div [ngStyle]="{'background': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}"

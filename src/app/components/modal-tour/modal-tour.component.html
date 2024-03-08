@@ -1,9 +1,11 @@
 <div class="modal">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ currentTitle }}</h2>
     <img [src]="currentImage" alt="Imagem">
     <p>{{ currentMessage }}</p>
-    <button (click)="next()">Next</button>
+    <img [src]="currentSlider" alt="Imagem">
+    <button (click)="next()">Proximo ></button>
     <br>
     <div>
       <input type="checkbox" id="mostrarMensagem" [(ngModel)]="hideMessage">

@@ -18,11 +18,9 @@ export class MyLottieComponent implements OnInit {
 
   animationFinished = false;
 
-  constructor(private router: Router) {} // Injetar Router
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-    // ... (código opcional)
-  }
+  ngOnInit() {}
 
   animationCreated(animationItem: AnimationItem): void {
     console.log(animationItem);

@@ -5,7 +5,6 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./dashboard/home/home.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { TabelaTransacoesComponent } from './dashboard/tabela-transacoes/tabela-transacoes.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { ModalTourComponent } from './components/modal-tour/modal-tour.component';
 import { MyLottieComponent } from './components/my-lottie/my-lottie.component';
@@ -15,7 +14,7 @@ import { MyLottieComponent } from './components/my-lottie/my-lottie.component';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, TabelaTransacoesComponent, LoginComponent, ModalTourComponent, MyLottieComponent]
+  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, LoginComponent, ModalTourComponent, MyLottieComponent]
 })
 export class AppComponent {
   title = 'StarPay';
