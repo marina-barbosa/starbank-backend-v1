@@ -35,35 +35,77 @@ export class TransacoesComponent {
     }
   };
 
+  filtroTipo: string = 'todas';
+  pageSize: number = 5;
+  currentPage: number = 1;
 
-  currentPage = 1;
-  pageSize = 10;
 
-  get paginatedTransactions() {
-    const start = (this.currentPage - 1) * this.pageSize;
-    const end = start + this.pageSize;
-    return this.user.transacoes.slice(start, end);
+
+
+  getTotalPages(): number[] {
+    const total = Math.ceil(this.getFilteredTransactions().length / this.pageSize);
+    return Array(total).fill(0).map((x, i) => i + 1);
   }
 
-  get hasPreviousPage() {
-    return this.currentPage > 1;
+  getVisibleTransactions(): any[] {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    return this.getFilteredTransactions().slice(startIndex, startIndex + this.pageSize);
   }
 
-  get hasNextPage() {
-    return this.currentPage < Math.ceil(this.user.transacoes.length / this.pageSize);
+  getFilteredTransactions(): any[] {
+    if (this.filtroTipo === 'todas') {
+      return this.user.transacoes;
+    } else {
+      return this.user.transacoes.filter(transacao => transacao.tipo === this.filtroTipo);
+    }
   }
 
-  goToPreviousPage() {
+  previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
-  goToNextPage() {
-    if (this.currentPage < Math.ceil(this.user.transacoes.length / this.pageSize)) {
+  nextPage(): void {
+    if (this.currentPage < this.getTotalPages().length) {
       this.currentPage++;
     }
   }
+
+  onFilterChange(): void {
+    this.currentPage = 1; // reset da page
+  }
+
+
+
+
+
+
+  // get paginatedTransactions() {
+  //   const start = (this.currentPage - 1) * this.pageSize;
+  //   const end = start + this.pageSize;
+  //   return this.user.transacoes.slice(start, end);
+  // }
+
+  // get hasPreviousPage() {
+  //   return this.currentPage > 1;
+  // }
+
+  // get hasNextPage() {
+  //   return this.currentPage < Math.ceil(this.user.transacoes.length / this.pageSize);
+  // }
+
+  // goToPreviousPage() {
+  //   if (this.currentPage > 1) {
+  //     this.currentPage--;
+  //   }
+  // }
+
+  // goToNextPage() {
+  //   if (this.currentPage < Math.ceil(this.user.transacoes.length / this.pageSize)) {
+  //     this.currentPage++;
+  //   }
+  // }
 
 
 
