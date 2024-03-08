@@ -27,8 +27,10 @@ export class ModalTourComponent {
   currentTitle: string = this.titles[0];
   currentMessage: string = this.messages[0];
   currentSlider: string = this.slider[0];
+  currentButton: string = 'Comece agora';
   currentIndex: number = 0;
   hideMessage: boolean = false;
+  lastModal: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -43,10 +45,20 @@ export class ModalTourComponent {
     this.currentTitle = this.titles[this.currentIndex];
     this.currentMessage = this.messages[this.currentIndex];
     this.currentSlider = this.slider[this.currentIndex];
+    if (this.currentIndex == 0) {
+      this.currentButton = 'Comece agora';
+    } else if (this.currentIndex == 5) {
+      this.currentButton = 'Fechar';
+      this.lastModal = true;
+    } else {
+      this.currentButton = 'Proximo >';
+    }
+    if (this.lastModal && this.currentIndex == 0){
+      this.closeModal()
+    }
   }
 
   closeModal() {
-    alert('Modal fechado');
     this.router.navigate(['/home']);
   }
 }

@@ -5,11 +5,11 @@
     <img [src]="currentImage" alt="Imagem">
     <p>{{ currentMessage }}</p>
     <img [src]="currentSlider" alt="Imagem">
-    <button (click)="next()">Proximo ></button>
+    <button (click)="next()">{{currentButton}}</button>
     <br>
-    <div>
+    <!-- <div>
       <input type="checkbox" id="mostrarMensagem" [(ngModel)]="hideMessage">
       <label for="mostrarMensagem"> Não mostrar esta mensagem novamente</label>
-    </div>
+    </div> -->
   </div>
 </div>
