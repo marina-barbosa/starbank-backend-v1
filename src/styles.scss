@@ -56,7 +56,7 @@ button {
   cursor: pointer;
 }
 
-.btn-primary {
+.button-primary {
   position: relative;
   color: var(--clr);
   width: 250px;
@@ -75,7 +75,7 @@ button {
   transform: 0.5s;
 }
 
-.btn-primary::before {
+.button-primary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -90,7 +90,7 @@ button {
   z-index: -1;
 }
 
-.btn-primary:hover::before {
+.button-primary:hover::before {
   transform-origin: right;
   transition: transform 0.5s ease;
   transform: scaleX(0);
