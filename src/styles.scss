@@ -8,6 +8,7 @@
   --secundaria: #222222;
 
   --amarelo: #F3BE73;
+  --amarelo10: #F7D78C;
   --amarelo20: #efe4d5;
   --preto: #222222;
   --verde: #00DDA3;
@@ -51,6 +52,46 @@ a {
   cursor: pointer;
 }
 
-button{
+button {
   cursor: pointer;
+}
+
+.button-primary {
+  position: relative;
+  color: var(--clr);
+  width: 250px;
+  height: 40px;
+  background: var(--amarelo);
+  border-radius: 4px;
+  border: 1px solid var(--clr);
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: 'Khand';
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 0;
+  z-index: 1;
+  transform: 0.5s;
+}
+
+.button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--amarelo10);
+  border-radius: 4px;
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  transform: scaleX(1);
+  z-index: -1;
+}
+
+.button-primary:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
 }
