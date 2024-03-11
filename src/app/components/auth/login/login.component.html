@@ -1,57 +1,86 @@
+<!-- <h1>Login no Banco Digital</h1>
+
+<form [formGroup]="loginForm" *ngIf="loginForm">
+  <label for="username">Nome de usuário</label>
+  <input type="text" id="username" formControlName="username" required>
+
+  <label for="password">Senha</label>
+  <input type="password" id="password" formControlName="password" required>
+
+  <button type="submit" (click)="onSubmit()">Entrar</button>
+</form>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> -->
+
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login | StarPay</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<div class="body container-fluid">
-    <div class="row">
-        <div class="order-md-2">
-            <div class="container login-container mb-4">
-                <div class="text-center">
-                    <h3><span>Star</span> Bank</h3>
-                    <h6>Acesse sua conta</h6>
-                </div>
-                <div class="card-body">
-                    <form>
+<div class="body">
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="cpf" placeholder="CPF">
-                        </div>
+    <div class="img-container">
+      <div>
+        <h1><span>Star</span> Bank</h1>
+      </div>
 
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="password" placeholder="Senha">
-                            <a class="links">Esqueceu sua senha?</a>
-                        </div>
+      <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
 
-                        <button routerLink="/lottie" class="btn btn-block color-button">Enviar</button>
-                        <p class="text-card">
-                            <a routerLink="/register" class="links">Ainda não tem conta? <span>Cadastre-se</span></a>
-                        </p>
-                        <div>
-                          <ul>
-                            <li><i class="fa-brands fa-square-github"></i></li>
-                            <li><i class="fa-brands fa-linkedin"></i></li>
-                            <li><i class="fa-brands fa-instagram"></i></li>
-                          </ul>
-                        </div>
-                        <!-- <div>
-                          <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
-                        </div> -->
-                    </form>
-                  </div>
-                </div>
-                <div class="footer">
-                  <p>
-                    copyright 2024 StarTech All Rights Reserved
-                  </p>
-                </div>
+      <div class="sub-titulo">
+        <p> Sua jornada financeira, guiada <br>pelo brilho da inovação</p>
+      </div>
+
+    </div>
+
+    <div class="login-container">
+      <div class="card-body">
+
+        <h3>Login</h3>
+        <h6>Acesse sua conta</h6>
+
+        <form>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="cpf" placeholder="CPF">
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="Senha">
+          </div>
+
+          <p class="text-card text-right">
+            <a class="links">Esqueceu sua senha?</a>
+          </p>
+
+          <button routerLink="/lottie" class="button-primary">
+            Enviar
+          </button>
+
+          <p class="text-card">
+            <a routerLink="/register" class="links">
+              Ainda não tem conta? <span>Cadastre-se</span>
+            </a>
+          </p>
+
+        </form>
+
+        <div class="social-icons">
+          <ul>
+            <li><i class="fa-brands fa-square-github"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-square-twitter"></i></li>
+          </ul>
         </div>
 
-        <!-- <p>Sua jornada financeira, guiada pelo brilho da inovação.</p> -->
-    </div>
-</div>
+      </div>
 
+      <div class="footer">
+        <p>
+          copyright 2024 StarTech All Rights Reserved
+        </p>
+      </div>
+
+    </div>
+
+</div>
