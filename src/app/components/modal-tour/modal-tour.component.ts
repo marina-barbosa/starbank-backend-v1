@@ -49,7 +49,7 @@ export class ModalTourComponent {
       this.currentButton = 'Comece agora';
     } else if (this.currentIndex == 5) {
       this.currentButton = 'Fechar';
-      this.lastModal = true;
+      //this.lastModal = true;
     } else {
       this.currentButton = 'Proximo >';
     }
