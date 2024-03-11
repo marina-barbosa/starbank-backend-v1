@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class ModalTourComponent {
 
-  images: string[] = ['../../../assets/modal/bolinhas.png', '../../../assets/modal/pix.png', '../../../assets/modal/economize.png','../../../assets/modal/pagar-conta.png', '../../../assets/modal/cartoes.png', '../../../assets/modal/recarga.png'];
+  images: string[] = ['../../../assets/modal/img1.png', '../../../assets/modal/pix.png', '../../../assets/modal/economize.png','../../../assets/modal/pagar-conta.png', '../../../assets/modal/cartoes.png', '../../../assets/modal/recarga.png'];
   titles: string[] = ['Star Bank','Pix', 'Economize seu Dinheiro', 'Pagar Contas', 'Cartões', 'Recarga de Celular'];
   messages: string[] = [
-    '',
+    'Sua jornada financeira, guiada pelo brilho da inovação',
     'Acelere suas transações com a eficiência do Pix. Transferências instantâneas que proporcionam conveniência e agilidade em cada movimento financeiro',
     'Acompanhe o progresso de suas economias e crie o hábito de economizar com Star Pay.',
     'Descomplicamos o processo de pagamento de contas, permitindo que você se concentre no essencial. Na Star Pay, cada transação é uma experiência simples e eficaz.',

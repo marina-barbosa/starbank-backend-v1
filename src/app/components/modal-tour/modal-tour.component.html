@@ -1,11 +1,11 @@
 <div class="modal">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <h2>{{ currentTitle }}</h2>
     <img [src]="currentImage" alt="Imagem">
+    <h2 [ngClass]="{'title': currentIndex === 0, 'title2': currentIndex !== 0}">{{ currentTitle }}</h2>
     <p>{{ currentMessage }}</p>
     <img [src]="currentSlider" alt="Imagem">
-    <button (click)="next()">{{currentButton}}</button>
+    <button class="btn-primary" (click)="next()">{{currentButton}}</button>
     <br>
     <!-- <div>
       <input type="checkbox" id="mostrarMensagem" [(ngModel)]="hideMessage">
