@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace StarBank.Controllers;
 
 [ApiController]
-[Route("users")]
-public class UserController : ControllerBase
+[Route("hello")]
+public class HelloController : ControllerBase
 {
     [HttpGet]
-    public IActionResult GetHello() {
+    public IActionResult GetHello()
+    {
         return Ok("Hello world!");
     }
 }
