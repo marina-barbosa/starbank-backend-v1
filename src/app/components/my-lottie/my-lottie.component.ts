@@ -25,6 +25,5 @@ export class MyLottieComponent implements OnInit {
   animationCreated(animationItem: AnimationItem): void {
     console.log(animationItem);
     timer(3500).subscribe(() => this.router.navigate(['/tour']));
-  }
 
 }

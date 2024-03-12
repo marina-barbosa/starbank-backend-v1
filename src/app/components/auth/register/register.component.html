@@ -16,23 +16,23 @@
           <form [formGroup]="formulario">
             <div class="form-group">
               <input type="text" class="form-control" id="fullName" formControlName="fullName"
-                placeholder="Nome completo">
+                placeholder="Nome completo" required>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="CPF">
+              <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="CPF" required>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Telefone">
+              <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Telefone" required>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="address" formControlName="address" placeholder="Endereço">
+              <input type="text" class="form-control" id="address" formControlName="address" placeholder="Endereço" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="password" formControlName="password" placeholder="Senha">
+              <input type="password" class="form-control" id="password" formControlName="password" placeholder="Senha" required>
             </div>
             <div class="form-group">
               <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
-                placeholder="Confirmar senha">
+                placeholder="Confirmar senha" required>
             </div>
 
             <button type="submit" (click)="registerUser()" class="btn btn-block color-button">Enviar</button>
