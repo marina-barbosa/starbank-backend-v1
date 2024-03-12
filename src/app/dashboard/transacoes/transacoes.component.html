@@ -3,15 +3,11 @@
     <h3>Histórico de Transações</h3>
     <div>
       <p>Filtrar por:</p>
-      <select id="filtro-transacoes">
+      <select id="filtro-transacoes" [(ngModel)]="filtroTipo" (change)="onFilterChange()">
         <option value="todas">Todas</option>
         <option value="entrada">Entrada</option>
-        <option value="saida">Saída</option>
-        <!-- <option value="hoje">Hoje</option>
-        <option value="ontem">Ontem</option>
-        <option value="ultima-semana">Última Semana</option>
-        <option value="ultimo-mes">Último Mês</option>
-        <option value="personalizado">Personalizado</option> -->
+        <option value="saída">Saída</option>
+        <option value="transfarencia">Transferência</option>
       </select>
     </div>
   </div>
@@ -26,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let transacao of paginatedTransactions">
+        <tr *ngFor="let transacao of getVisibleTransactions()">
           <td>
             <div [ngStyle]="{'background': transacao.valor >= 0 ? 'var(--verde)' : 'var(--vermelho)'}"
               *ngIf="transacao.tipo === 'entrada'"><i class="bi bi-arrow-down-up"></i></div>
@@ -44,9 +40,9 @@
 
   </div>
   <div class="page-btn">
-    <button (click)="goToPreviousPage()">Anterior</button>
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
     <button>{{ currentPage }}</button>
-    <button (click)="goToNextPage()">Próximo</button>
+    <button (click)="nextPage()" [disabled]="currentPage === getTotalPages().length">Próxima</button>
   </div>
 
 </div>
