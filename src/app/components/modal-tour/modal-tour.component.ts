@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class ModalTourComponent {
 
-  images: string[] = ['../../../assets/modal/img1.png', '../../../assets/modal/pix.png', '../../../assets/modal/economize.png','../../../assets/modal/pagar-conta.png', '../../../assets/modal/cartoes.png', '../../../assets/modal/recarga.png'];
-  titles: string[] = ['Star Bank','Pix', 'Economize seu Dinheiro', 'Pagar Contas', 'Cartões', 'Recarga de Celular'];
+  images: string[] = ['../../../assets/modal/img1.png', '../../../assets/modal/pix.png', '../../../assets/modal/economize.png', '../../../assets/modal/pagar-conta.png', '../../../assets/modal/cartoes.png', '../../../assets/modal/recarga.png'];
+  titles: string[] = ['Star Bank', 'Pix', 'Economize seu Dinheiro', 'Pagar Contas', 'Cartões', 'Recarga de Celular'];
   messages: string[] = [
     'Sua jornada financeira, guiada pelo brilho da inovação',
     'Acelere suas transações com a eficiência do Pix. Transferências instantâneas que proporcionam conveniência e agilidade em cada movimento financeiro',
@@ -22,7 +22,7 @@ export class ModalTourComponent {
     'Eleve sua experiência financeira com nossos cartões virtuais. Transações seguras e flexíveis, disponíveis em qualquer lugar. Com a Star Pay, a modernidade está ao alcance dos seus dedos',
     'Mantenha-se conectado com nossa opção de recarga de celular. Uma solução moderna e ágil para garantir que você esteja sempre em contato'
   ];
-  slider: string[] = ['../../../assets/modal/slider-inicio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-meio.png','../../../assets/modal/slider-fim.png'];
+  slider: string[] = ['../../../assets/modal/slider-inicio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-meio.png', '../../../assets/modal/slider-fim.png'];
   currentImage: string = this.images[0];
   currentTitle: string = this.titles[0];
   currentMessage: string = this.messages[0];
@@ -49,11 +49,11 @@ export class ModalTourComponent {
       this.currentButton = 'Comece agora';
     } else if (this.currentIndex == 5) {
       this.currentButton = 'Fechar';
-      //this.lastModal = true;
+      this.lastModal = true;
     } else {
       this.currentButton = 'Proximo >';
     }
-    if (this.lastModal && this.currentIndex == 0){
+    if (this.lastModal && this.currentIndex == 0) {
       this.closeModal()
     }
   }

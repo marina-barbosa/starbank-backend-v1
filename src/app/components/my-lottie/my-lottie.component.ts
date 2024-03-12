@@ -18,12 +18,13 @@ export class MyLottieComponent implements OnInit {
 
   animationFinished = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   animationCreated(animationItem: AnimationItem): void {
     console.log(animationItem);
     timer(3500).subscribe(() => this.router.navigate(['/tour']));
 
+  }
 }
