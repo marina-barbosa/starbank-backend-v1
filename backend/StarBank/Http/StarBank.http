@@ -1,0 +1,6 @@
+@URL = http://localhost:5201
+
+GET {{URL}}/hello/
+Accept: application/json
+
+###

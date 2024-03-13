@@ -1,6 +1,0 @@
-@URL = http://localhost:5201
-
-GET {{URL}}/users/
-Accept: application/json
-
-###
