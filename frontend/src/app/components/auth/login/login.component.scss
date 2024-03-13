@@ -1,3 +1,7 @@
+body {
+  background-color: #eee !important;
+}
+
 .body {
   background: var(--branco);
   padding: 0;
@@ -148,9 +152,10 @@
 }
 
 @media screen and (max-width: 1015px) {
-  .img-container{
+  .img-container {
     display: none;
   }
+
   .login-container {
     margin-right: auto;
   }

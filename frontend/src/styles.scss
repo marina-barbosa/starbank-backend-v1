@@ -4,7 +4,7 @@
 
 
 :root {
-  --primaria: #F3BE73;
+  --primaria: #F7D78C;
   --secundaria: #222222;
 
   --amarelo: #F3BE73;
@@ -23,7 +23,7 @@
 
   --clr: #000000;
   --white: #fff;
-  --color-base: #ecc270;
+  --color-base: #F7D78C;
 
 }
 
@@ -37,13 +37,17 @@
 
 body {
   background: var(--branco);
-  // width: 100vw;
+  width: 100vw;
   height: 100vh;
   font-family: Poppins;
   display: flex;
   justify-content: center;
   position: relative;
   // align-items: start;
+}
+
+.force {
+  background: var(--branco) !important;
 }
 
 

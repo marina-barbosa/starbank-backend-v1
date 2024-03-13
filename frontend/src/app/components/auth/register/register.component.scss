@@ -1,5 +1,5 @@
 .body {
-    background: var(--branco)r;
+    background: var(--branco);
     padding: 0;
     height: 100vh;
     width: 100vw;
@@ -41,11 +41,14 @@ p {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    max-width: 70%; /* Ajuste a largura máxima conforme necessário */
-    margin-left: 5%; /* Adicione uma margem à esquerda */
+    max-width: 70%;
+    /* Ajuste a largura máxima conforme necessário */
+    margin-left: 5%;
+    /* Adicione uma margem à esquerda */
 }
-.container input{
-  border: 1px solid var(--preto);
+
+.container input {
+    border: 1px solid var(--preto);
 }
 
 .login-container {
@@ -56,13 +59,15 @@ p {
 .logo-rocket {
     text-align: center;
     margin-top: 20px;
-    max-width: 70%; /* Ajuste a largura máxima conforme necessário */
-    margin-left: 5%; /* Adicione uma margem à esquerda */
+    max-width: 70%;
+    /* Ajuste a largura máxima conforme necessário */
+    margin-left: 5%;
+    /* Adicione uma margem à esquerda */
 }
 
-.footer p{
-  text-align: center;
-  color: var(--preto);
+.footer p {
+    text-align: center;
+    color: var(--preto);
 }
 
 
@@ -73,7 +78,8 @@ p {
         flex-direction: column;
     }
 
-    .col-md-12, .col-md-6 {
+    .col-md-12,
+    .col-md-6 {
         width: 100%;
         order: 0;
     }
