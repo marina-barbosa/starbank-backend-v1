@@ -4,6 +4,7 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { ModalTourComponent } from './components/modal-tour/modal-tour.component';
 import { MyLottieComponent } from './components/my-lottie/my-lottie.component';
 
 export const routes: Routes = [
@@ -12,6 +13,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'lottie', component: MyLottieComponent },
+  { path: 'tour', component: ModalTourComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: 'land' }
 ];
