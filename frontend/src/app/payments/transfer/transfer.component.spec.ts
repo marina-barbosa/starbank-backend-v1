@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalTourComponent } from './modal-tour.component';
+import { TransferComponent } from './transfer.component';
 
-describe('ModalTourComponent', () => {
-  let component: ModalTourComponent;
-  let fixture: ComponentFixture<ModalTourComponent>;
+describe('TransferComponent', () => {
+  let component: TransferComponent;
+  let fixture: ComponentFixture<TransferComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ModalTourComponent]
+      imports: [TransferComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ModalTourComponent);
+    fixture = TestBed.createComponent(TransferComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
