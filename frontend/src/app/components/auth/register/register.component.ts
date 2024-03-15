@@ -1,58 +1,55 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { FormsModule, NgModel, Validators } from '@angular/forms';
 import { User } from '../../../Models/User';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
+
+
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule,],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
-})
-export class RegisterComponent {
-  formulario = new FormGroup({
-    fullName: new FormControl('', Validators.required),
-    cpf: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
-    address: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required)
-  });
-  
-
-  constructor(private userService: UserService, private router: Router) { }
 
 
-  registerUser(): void {
-    
-    if (this.formulario.valid) {      
-      if (this.validatePasswordMatch()) {
-        this.userService.registerUser(this.formulario.value as User);
-        alert('Cadastro de usuário realizado com sucesso!');
-        this.router.navigate(['/login']);
-        
-      } else {
-        alert('As senhas não coincidem.');
-      }
-    } else {
-      alert('Por favor, preencha todas as informações do usuário.');
+}) export class RegisterComponent {
+  formDataModal1: any = {
+    nome: '',
+    cpf: '',
+    email: '',
+    phone: '',
+  };
+
+  formDataModal2: any = {
+    adress: {
+      street: '',
+      number: 0,
+      complement: '',
+      neighborhood: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      country: 'Brasil'
     }
-  }
+  };
 
-  validatePasswordMatch(): boolean {
-    const senhaControl = this.formulario.get('password');
-    const confirmarSenhaControl = this.formulario.get('confirmPassword');
 
-    if (senhaControl && confirmarSenhaControl && senhaControl.value !== null && confirmarSenhaControl.value !== null) {
-      const senha = senhaControl.value.trim();
-      const confirmarSenha = confirmarSenhaControl.value.trim();
+  formDataModal3Data: any = {
+    acceptTerms: false
+  }; // Objeto para armazenar o estado do checkbox
 
-      return senha === confirmarSenha;
-    }
-    return false;
-  }
-} 
+  modal3Title: string = 'Modal 3';
+  modal3Message: string = 'Por favor, aceite os termos abaixo:';
+
+
+  formDataModal4: any = {
+    password: '',
+    confirmPassword: '',
+    passwordSecurity: '',
+    confirmPasswordSecurity: ''
+  };
+}
