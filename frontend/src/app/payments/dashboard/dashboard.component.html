@@ -1,26 +1,73 @@
-<!-- frontend\src\app\payments\dashboard\dashboard.component.html -->
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="text-center">Pagamentos</h2>
             <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <button class="button-primary" routerLink="/transferencia-bancaria">Transferência Bancaria</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="button-primary" routerLink="/pix">PIX</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="button-primary" routerLink="/recarga-celular">Recarga de Celular</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="button-primary" routerLink="/boleto">Boleto</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="button-primary" routerLink="/sacar">Sacar</button>
+                <div class="col-md-4" *ngFor="let option of paymentOptions">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ option.title }}</h5>
+                            <p class="card-text">{{ option.description }}</p>
+                            <button class="btn btn-primary" (click)="selectPaymentOption(option)">Selecionar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Boletos</h5>
+                    <p class="card-text">Pague seus boletos de forma rápida e fácil.</p>
+                    <a href="#" class="btn btn-primary">Pagar Boletos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recarga de Celular</h5>
+                    <p class="card-text">Recarregue o saldo do seu celular com comodidade.</p>
+                    <a href="#" class="btn btn-primary">Recarregar Celular</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pague sua Fatura</h5>
+                    <p class="card-text">Realize o pagamento da sua fatura de forma simples e segura.</p>
+                    <a href="#" class="btn btn-primary">Pagar Fatura</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Caixinha Star Invest</h5>
+                    <p class="card-text">Invista seus recursos na Caixinha Star Invest e obtenha rendimentos.</p>
+                    <a href="#" class="btn btn-primary">Investir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Maquininhas StarTreck</h5>
+                    <p class="card-text">Solicite uma maquininha StarTreck para seu estabelecimento.</p>
+                    <a href="#" class="btn btn-primary">Pedir Maquininha</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
