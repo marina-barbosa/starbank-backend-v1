@@ -3,12 +3,13 @@ import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalTourComponent } from '../../modal-tour/modal-tour.component';
 import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [RouterLink, FormsModule, CommonModule, ReactiveFormsModule, ModalTourComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
