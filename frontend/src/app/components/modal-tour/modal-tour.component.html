@@ -1,0 +1,19 @@
+<div class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img class="img" [src]="currentImage" alt="Imagem">
+    <div class="modal-top">
+      <h2 [ngClass]="{'title': currentIndex === 0, 'title2': currentIndex !== 0}">{{ currentTitle }}</h2>
+      <p>{{ currentMessage }}</p>
+    </div>
+    <div class="modal-bot">
+      <img [src]="currentSlider" alt="Imagem">
+      <button class="button-primary" (click)="next()">{{currentButton}}</button>
+    </div>
+    <br>
+    <!-- <div>
+      <input type="checkbox" id="mostrarMensagem" [(ngModel)]="hideMessage">
+      <label for="mostrarMensagem"> Não mostrar esta mensagem novamente</label>
+    </div> -->
+  </div>
+</div>
