@@ -1,4 +1,5 @@
-nav,
+
+  nav,
 section,
 footer {
   border-left: 1px solid var(--cinza2);
@@ -306,7 +307,7 @@ nav button i {
   height: 330px;
   border-radius: 30px;
   border: 1px solid #fff;
-  background: rgba(238, 238, 238, 0.5);
+  background: rgba(238, 238, 238, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -376,7 +377,6 @@ nav button i {
 }
 
 
-
 .cta-app {
   width: 100%;
   height: 630px;
@@ -404,12 +404,6 @@ nav button i {
   color: var(--secundaria);
 }
 
-.app-left p {
-  font-size: 20px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
 .app-left .badges {
   display: flex;
   align-items: center;
@@ -429,9 +423,13 @@ nav button i {
   height: 100%;
 }
 
-.app-right img {
-  margin-top: 50px;
-  margin-right: 100px;
+#celulares-landing-page {
+  width: 500px; /* ajuste o tamanho conforme necessário */
+  height: auto; /* mantenha a proporção original da imagem */
+  margin-right: 10px; /* ajuste o espaçamento entre o ícone e o texto */
+  vertical-align: middle; /* alinhe verticalmente com o texto */
+  margin-top: 221px;
+  
 }
 
 
@@ -501,6 +499,14 @@ footer .logo span {
   font-size: 20px;
   color: var(--primaria);
 }
+
+#logo-foguete {
+  width: 15px; 
+  height: auto;
+  margin-right: 10px; 
+  vertical-align: middle; 
+}
+
 
 footer .logo span {
   font-weight: bold;
