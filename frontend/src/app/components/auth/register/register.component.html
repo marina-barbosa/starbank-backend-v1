@@ -1,3 +1,90 @@
+<!-- Modal 1 -->
+<div *ngIf="currentModal === 1" class="modal-content">
+  <button class="back-button" (click)="goBack()">Voltar</button>
+  <h1>StarPay</h1>
+  <h2>Bem vindo, ficamos muito felizes em te ver por aqui.</h2>
+
+  <div class="form-wrapper">
+    <input type="text" class="form-control" id="companyName" placeholder="Razão Social" required>
+    <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" required>
+    <input type="text" class="form-control" id="stateRegistration" placeholder="Inscrição Estadual">
+    <input type="text" class="form-control" id="annualRevenue" placeholder="Faturamento Anual">
+    <label for="taxationType">Taxation Type:</label>
+    <select name="taxationType" id="taxationType">
+      <option value="individual">Individual</option>
+      <option value="corporate">Corporate</option>
+      <option value="partnership">Partnership</option>
+      <option value="limited-liability-company">Limited Liability Company</option>
+    </select>
+    <button class="btn btn-block color-button" (click)="nextModal()">Enviar</button>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div *ngIf="currentModal === 2" class="modal-content">
+  <button class="back-button" (click)="goBack()">Voltar</button>
+  <h1>Queremos saber mais sobre seu negócio, para isso, pedimos que preencha os campos abaixo:</h1>
+
+  <div class="form-wrapper">
+    <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+    <p *ngIf="!formData.email" class="error-message">E-mail é obrigatório</p>
+    <p *ngIf="formData.email && !isValidEmail(formData.email)" class="error-message">E-mail inválido</p>
+
+    <input type="text" class="form-control" id="phone" placeholder="Telefone">
+    <input type="text" class="form-control" id="addressStreet" placeholder="Rua" required>
+    <input type="text" class="form-control" id="addressNumber" placeholder="Número" required>
+    <input type="text" class="form-control" id="addressComplement" placeholder="Complemento">
+    <input type="text" class="form-control" id="addressNeighborhood" placeholder="Bairro" required>
+    <input type="text" class="form-control" id="addressCity" placeholder="Cidade" required>
+
+    <select [(ngModel)]="selectedState">
+      <option value="" disabled selected>Selecione um estado</option>
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+    <p *ngIf="!selectedState" class="error-message">Campo obrigatório</p>
+
+    <button class="btn btn-block color-button" (click)="nextModal()">Enviar</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- FILEPATH: /c:/Users/aline/Documents/la vamos nós/StarPay/frontend/src/app/components/auth/register/register.component.html -->
 <!--
 <head>
