@@ -14,6 +14,9 @@ import { NgModule } from '@angular/core';
 })
 
 export class RegisterComponent {
+register() {
+throw new Error('Method not implemented.');
+}
   currentModal: number = 1;
   currentModalIndex: number = 0;
 
