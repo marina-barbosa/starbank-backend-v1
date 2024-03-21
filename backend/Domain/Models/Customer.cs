@@ -1,6 +1,6 @@
 namespace StarBank.Domain.Models;
 
-public class Cliente
+public class Customer
 {
 
 }

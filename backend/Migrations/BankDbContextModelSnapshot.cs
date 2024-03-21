@@ -8,8 +8,8 @@ using StarBank.Domain;
 
 namespace StarBank.Migrations
 {
-    [DbContext(typeof(BancoDbContext))]
-    partial class BancoDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(BankDbContext))]
+    partial class BankDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
