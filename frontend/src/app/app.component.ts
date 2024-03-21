@@ -8,7 +8,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ModalTourComponent } from './components/modal-tour/modal-tour.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LayoutComponent } from './layout/layout.component';
+
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ import { LayoutComponent } from './layout/layout.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 
-  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, ModalTourComponent, NavbarComponent, LayoutComponent],
+  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, ModalTourComponent, NavbarComponent,],
 
 })
 export class AppComponent {

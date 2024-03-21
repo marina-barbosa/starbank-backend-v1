@@ -1,57 +1,63 @@
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login | StarPay</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+<!-- Modal 1 -->
+<div *ngIf="currentModal === 1" class="modal-content">
+  <button class="back-button" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+  <h1>StarPay</h1>
+  <h3>Bem vindo, ficamos muito felizes em te ver por aqui.</h3>
 
-<div class="body container-fluid">
-  <div class="row">
-    <div class="order-md-2">
-      <div class="container login-container mb-4">
-        <div class="text-center">
-          <h3>Cadastrar</h3>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="formulario">
-            <div class="form-group">
-              <input type="text" class="form-control" id="fullName" formControlName="fullName"
-                placeholder="Nome completo" required>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="CPF" required>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Telefone" required>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" id="address" formControlName="address" placeholder="Endereço" required>
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="password" formControlName="password" placeholder="Senha" required>
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
-                placeholder="Confirmar senha" required>
-            </div>
-
-            <button type="submit" (click)="registerUser()" class="btn btn-block color-button">Enviar</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer">
-        <p>
-          copyright 2024 StarTech All Rights Reserved
-        </p>
-      </div>
+  <div class="form-wrapper">
+    <input type="text" class="form-control" id="companyName" placeholder="Razão Social" required>
+    <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" required>
+    <input type="text" class="form-control" id="stateRegistration" placeholder="Inscrição Estadual">
+    <input type="text" class="form-control" id="annualRevenue" placeholder="Faturamento Anual">
+    <label for="taxationType">Tributação:</label>
+    <select name="taxationType" id="taxationType">
+      <option value="individual">Individual</option>
+      <option value="corporate">Corporate</option>
+      <option value="partnership">Partnership</option>
+      <option value="limited-liability-company">Limited Liability Company</option>
+    </select>
+    <div>
+      <button class="btn btn-primary" (click)="nextModal()">Enviar</button>
     </div>
-    <!-- <div class="col-md-6 order-md-1">
-            <div class="logo-rocket">
-                <h1 class="h1">Star Bank</h1>
-                <img src="/assets/images/logo_foguete.png" class="img-fluid" alt="logo-foguete">
-                <p>Sua jornada financeira, guiada pelo brilho da inovação.</p>
-            </div>
-        </div>
-    </div> -->
-
   </div>
+</div>
+
+<!-- Modal 2 -->
+<div *ngIf="currentModal === 2" class="modal-content">
+
+  <button class="back-button" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+  <h3>Queremos saber mais sobre seu negócio, para isso, pedimos que preencha os campos abaixo:</h3>
+
+  <div class="form-wrapper">
+    <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+    <p *ngIf="formData.email && !isValidEmail(formData.email)" class="error-message">E-mail inválido</p>
+    <p *ngIf="!formData.email" class="error-message">E-mail é obrigatório</p>
+    <input type="text" class="form-control" id="phone" placeholder="Telefone">
+    <input type="text" class="form-control" id="addressStreet" placeholder="Rua" required>
+    <input type="text" class="form-control" id="addressNumber" placeholder="N°" required>
+    <input type="text" class="form-control" id="addressComplement" placeholder="Complemento">
+    <input type="text" class="form-control" id="addressNeighborhood" placeholder="Bairro" required>
+    <input type="text" class="form-control" id="addressCity" placeholder="Cidade" required>
+
+    <select [(ngModel)]="selectedState">
+      <option value="" disabled selected>Selecione um estado</option>
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+
+    <p *ngIf="!selectedState" class="error-message">Campo obrigatório</p>
+    <div><button class="btn btn-primary" (click)="nextModal()">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="currentModal === 3" class="modal-content">
+  <button class="back-button" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+  <h3>Ótimo, já estamos quase lá, crie uma senha de acesso. Lembre-se de criar uma senha forte!</h3>
+
+  <div class="form-wrapper">
+    <input type="password" class="form-control" id="password" placeholder="Senha" required>
+    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirme sua senha" required>
+    <p *ngIf="!formData.confirmPassword" class="error-message">Confirmação de senha é obrigatória</p>
+    <p *ngIf="formData.password !== formData.confirmPassword" class="error-message">Senhas não conferem</p>
+
+    <button class="btn btn-primary" (click)="register()">Cadastrar</button>

@@ -7,8 +7,11 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { ModalTourComponent } from './components/modal-tour/modal-tour.component';
 import { MyLottieComponent } from './components/my-lottie/my-lottie.component';
 import { DashboardComponent } from './payments/dashboard/dashboard.component';
-import { LayoutComponent } from './layout/layout.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { ComprovanteComponent } from './modal/comprovante/comprovante.component';
+import { ConfirmacaoComponent } from './modal/confirmacao/confirmacao.component';
+import { NegacaoComponent } from './modal/negacao/negacao.component';
+import { PixComponent } from './payments/pix/pix.component';
+import { TicketComponent } from './payments/ticket/ticket.component';
 
 export const routes: Routes = [
 
@@ -20,12 +23,11 @@ export const routes: Routes = [
   { path: 'tour', component: ModalTourComponent },
   { path: 'home', component: HomeComponent },
   { path: 'dashboard-payment', component: DashboardComponent },
+  { path: 'comprovante', component: ComprovanteComponent },
+  { path: 'confirmacao', component: ConfirmacaoComponent },
+  { path: 'negacao', component: NegacaoComponent },
+  {path: 'pix', component: PixComponent},
+  {path: 'ticket', component: TicketComponent},
   { path: '**', redirectTo: 'land' },
-  {
-    path: '', component: LayoutComponent, children: [
-      { path: 'navbar', component: NavbarComponent },
-      // Outras rotas das páginas
-    ]
-  },
 ];
 
