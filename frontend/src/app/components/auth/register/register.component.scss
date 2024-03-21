@@ -1,100 +1,75 @@
-.body {
-    background: var(--branco);
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
+/* Estilos para modais */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para os inputs */
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para os campos de "Número" e "Complemento" */
+.modal-content #addressNumber,
+.modal-content #addressComplement {
+    display: inline-block;
+    width: 48%;
+    margin-right: 4%;
+    width: calc(15% - 5px);
+    /* Define a largura para metade do tamanho da modal menos o espaçamento */
+    margin-right: 10px;
+    /* Adiciona um espaçamento à direita */
+}
+
+/* Estilos para botão de voltar */
+.back-button {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.back-button i {
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    display: flex;
     align-items: center;
     justify-content: center;
-}
-
-h3 {
-    color: var(--preto);
-    font-weight: 900;
-}
-
-h6 {
-    color: grey;
-}
-
-.color-button {
-    background-color: var(--preto);
-    border: var(--preto);
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
     color: #fff;
+    width: 200px;
 }
 
-h1 {
-    color: #fff;
-    font-weight: 900;
-    font-family: 'Khand';
-}
-
-p {
-    color: #fff;
-}
-
-.container {
-    width: 350px;
-    background-color: #F7D78C;
-    padding: 5%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: auto;
-    max-width: 70%;
-    /* Ajuste a largura máxima conforme necessário */
-    margin-left: 5%;
-    /* Adicione uma margem à esquerda */
-}
-
-.container input {
-    border: 1px solid var(--preto);
-}
-
-.login-container {
-    max-width: 100%;
-    margin: auto;
-}
-
-.logo-rocket {
-    text-align: center;
-    margin-top: 20px;
-    max-width: 70%;
-    /* Ajuste a largura máxima conforme necessário */
-    margin-left: 5%;
-    /* Adicione uma margem à esquerda */
-}
-
-.footer p {
-    text-align: center;
-    color: var(--preto);
-}
-
-
-
-
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-
-    .col-md-12,
-    .col-md-6 {
-        width: 100%;
-        order: 0;
-    }
-
-    .login-container {
-        max-width: 90%;
-        margin: auto;
-        float: none;
-        margin-top: 20px;
-    }
-
-    .logo-rocket {
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+/* Consulta de mídia para telas menores */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-width: none;
     }
 }

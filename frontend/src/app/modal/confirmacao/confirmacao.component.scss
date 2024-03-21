@@ -1,0 +1,25 @@
+     /* Estilos personalizados para o card */
+     .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .card-body {
+        display: flex;
+        align-items: center;
+    }
+    .checkmark {
+        font-size: 3rem;
+        color: #28a745; /* Cor verde */
+        margin-right: 20px;
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #6c757d; /* Cor cinza */
+        cursor: pointer;
+    }
+    .close-btn:hover {
+        color: #212529; /* Cor escura para hover */
+    }
