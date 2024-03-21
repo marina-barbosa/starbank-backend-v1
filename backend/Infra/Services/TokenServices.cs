@@ -1,6 +1,5 @@
 namespace StarPay.Infra.Services;
 
-
 public class TokenServices
 {
     private Iconfiguration configuration;

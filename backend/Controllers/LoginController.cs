@@ -1,43 +1,39 @@
-[HttpPost("login")]
+namespace StarBank.Controllers;
 
-public aysnc Task<IActionResult> Login([FromBody] Login login)
+using Microsoft.AspNetCore.Mvc;
+using StarPay.Domain.DTOs;
+using StarPay.Infra.Services;
 
+[ApiController]
+[Route("[controller]")]
+public class AuthController : ControllerBase
 {
-    if (string.IsNullOrEmpty(login.CpfCnpj) || string.IsNullOrEmpty(login.Password))
+    private readonly UserService _userService;
+    private readonly TokenServices _tokenServices;
+
+    public AuthController(UserService userService, TokenServices tokenServices)
     {
-        return BadRequest("CPF/CNPJ e senha precisam ser informados");
+        _userService = userService;
+        _tokenServices = tokenServices;
     }
 
-    var isCpf = login.CpfCnpj.Length == 11;
-    var isCnpj = login.CpfCnpj.Length == 14;
-
-    if (!isCpf && !isCnpj)
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginDto login)
     {
-        return BadRequest("CPF/CNPJ inválido");
-    }
-
-    if (isCpf)
-    {
-        if (!IsCpf(login.CpfCnpj))
+        if (string.IsNullOrEmpty(login.CpfCnpj) || string.IsNullOrEmpty(login.Password))
         {
-            return BadRequest("CPF inválido");
+            return BadRequest("CPF/CNPJ e senha precisam ser informados");
         }
-    }
-    else
-    {
-        if (!IsCnpj(login.CpfCnpj))
+
+        var user = await _userService.GetUserByLoginAsync(login.CpfCnpj, login.Password);
+        if (user == null)
         {
-            return BadRequest("CNPJ inválido");
+            return BadRequest("CPF/CNPJ ou senha inválidos");
         }
+
+        var token = _tokenServices.GenerateTokenJwt(user);
+
+        return Ok(new { token });
     }
-
-    var user = _context.Customers.SingleOrDefault(x => (isCpf && x.CpfCnpj == login.CpfCnpj) || (isCnpj && x.CpfCnpj == login.CpfCnpj && x.Password == login.Password));
-    if (user == null)
-    {
-        return BadRequest("CPF/CNPJ ou senha inválido");
-    }
-
-    var token = GenerateTokenJwt(user);
-
-    return Ok(new { token });
 }
+
