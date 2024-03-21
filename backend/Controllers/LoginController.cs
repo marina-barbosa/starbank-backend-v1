@@ -1,5 +1,7 @@
 [HttpPost("login")]
-public IActionResult Login([FromBody] Login login)
+
+public aysnc Task<IActionResult> Login([FromBody] Login login)
+
 {
     if (string.IsNullOrEmpty(login.CpfCnpj) || string.IsNullOrEmpty(login.Password))
     {
