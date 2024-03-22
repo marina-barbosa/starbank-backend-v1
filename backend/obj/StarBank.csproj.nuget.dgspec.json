@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aline\\Documents\\cadastro\\StarPay\\Backend\\StarBank.csproj": {}
+    "C:\\Veronica\\SharpCoders2023\\HackaDev3\\StarPay\\backend\\StarBank.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aline\\Documents\\cadastro\\StarPay\\Backend\\StarBank.csproj": {
+    "C:\\Veronica\\SharpCoders2023\\HackaDev3\\StarPay\\backend\\StarBank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aline\\Documents\\cadastro\\StarPay\\Backend\\StarBank.csproj",
+        "projectUniqueName": "C:\\Veronica\\SharpCoders2023\\HackaDev3\\StarPay\\backend\\StarBank.csproj",
         "projectName": "StarBank",
-        "projectPath": "C:\\Users\\aline\\Documents\\cadastro\\StarPay\\Backend\\StarBank.csproj",
-        "packagesPath": "C:\\Users\\aline\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aline\\Documents\\cadastro\\StarPay\\Backend\\obj\\",
+        "projectPath": "C:\\Veronica\\SharpCoders2023\\HackaDev3\\StarPay\\backend\\StarBank.csproj",
+        "packagesPath": "C:\\Users\\veron\\.nuget\\packages\\",
+        "outputPath": "C:\\Veronica\\SharpCoders2023\\HackaDev3\\StarPay\\backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\aline\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\veron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -42,6 +49,7 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+
 
             "Microsoft.AspNetCore.Authentication.JWtBearer": {
               "target": "Package",
@@ -70,6 +78,10 @@
               "target": "Package",
               "version": "[6.4.0, )"
             },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.4.1, )"
@@ -94,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\aline\\AppData\\Roaming\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
