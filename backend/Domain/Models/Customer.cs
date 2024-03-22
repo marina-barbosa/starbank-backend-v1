@@ -1,7 +1,8 @@
-namespace StarBank.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 
-public class Customer
+namespace StarPay.backend.Domain.Models;
+
+public class Customer : IdentityUser
 {
 
 }
-
