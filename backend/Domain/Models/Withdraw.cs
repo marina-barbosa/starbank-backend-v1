@@ -7,6 +7,6 @@ public class WithdrawalRequest
     [Required]
     public int AccountId { get; set; }
     public double Value { get; set; }
-    public string Password { get; set; }
+    public string? Password { get; set; }
 }
  

@@ -1,0 +1,5 @@
+C:\Users\aline\Desktop\sharpcoders\StarPay\backend\obj\Debug\net8.0\StarBank.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aline\Desktop\sharpcoders\StarPay\backend\obj\Debug\net8.0\StarBank.AssemblyInfoInputs.cache
+C:\Users\aline\Desktop\sharpcoders\StarPay\backend\obj\Debug\net8.0\StarBank.AssemblyInfo.cs
+C:\Users\aline\Desktop\sharpcoders\StarPay\backend\obj\Debug\net8.0\StarBank.csproj.CoreCompileInputs.cache
+C:\Users\aline\Desktop\sharpcoders\StarPay\backend\obj\Debug\net8.0\StarBank.sourcelink.json
