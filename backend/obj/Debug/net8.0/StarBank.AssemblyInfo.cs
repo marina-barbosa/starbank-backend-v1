@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StarBank")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d28104008768e388b49cd93e18beae1742c7296a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bef6651e2e1aec35ab25669184ccef7dd0f12a72")]
 [assembly: System.Reflection.AssemblyProductAttribute("StarBank")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StarBank")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

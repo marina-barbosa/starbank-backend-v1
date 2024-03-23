@@ -1,11 +1,11 @@
-using StarBank.Domain.Models;
+
 using Microsoft.AspNetCore.Mvc;
 using StarBank.Domain.DTOs;
 
 namespace StarBank.Controllers;
 
-[ApiController] 
-[Route("starBank")]
+[ApiController]
+[Route("v1")]
 
 public class RegisterPersonController : ControllerBase
 {
@@ -27,17 +27,20 @@ public class RegisterPersonController : ControllerBase
     };
 
 
-    [HttpPost("register/personPhysical")]
-    public IActionResult RegisterpersonPhysical(PersonPhysicalDto personPhysicalDto){
+    [HttpPost("personPhysical/register")]
+    public IActionResult RegisterpersonPhysical(PersonPhysicalDto personPhysicalDto)
+    {
         physicalPeople.Add(personPhysicalDto);
 
         return Ok("Person Physical Created!");
     }
 
-    [HttpGet("information/personPhysical")]
-    public IActionResult GetPersonPhysicalDto(){
+    [HttpGet("personPhysical/info")]
+    public IActionResult GetPersonPhysicalDto()
+    {
 
-        var personProfiles = physicalPeople.Select(person => new PersonPhysicalDto(){
+        var personProfiles = physicalPeople.Select(person => new PersonPhysicalDto()
+        {
             Id = person.Id,
             Name = person.Name,
             BirthDate = person.BirthDate,
@@ -75,17 +78,20 @@ public class RegisterPersonController : ControllerBase
     };
 
 
-    [HttpPost("register/personLegal")]
-    public IActionResult CadastroPessoaJurica(PersonLegalDto personLegalDto){
+    [HttpPost("personLegal/register")]
+    public IActionResult CadastroPessoaJurica(PersonLegalDto personLegalDto)
+    {
         peopleLegal.Add(personLegalDto);
 
         return Ok("Person Legal Created!");
     }
 
-    [HttpGet("information/personLegal")]
-    public IActionResult GetPersonLegal(){
+    [HttpGet("personLegal/info")]
+    public IActionResult GetPersonLegal()
+    {
 
-        var personProfiles = peopleLegal.Select(person => new PersonLegalDto(){
+        var personProfiles = peopleLegal.Select(person => new PersonLegalDto()
+        {
             Id = person.Id,
             CorporateReason = person.CorporateReason,
             Cnpj = person.Cnpj,

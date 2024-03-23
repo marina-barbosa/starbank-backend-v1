@@ -11,33 +11,33 @@ namespace StarBank.Controllers;
 public class UsersController : ControllerBase
 {
 
-    private readonly UserManager<User>? _userManager;
+    // private readonly UserManager<User>? _userManager;
 
-    private readonly IMapper _mapper;
+    // private readonly IMapper _mapper;
 
-    public UsersController(IMapper imapper)
-    {
-        _userManager = userManager;
-        _mapper = mapper;
-    }
+    // public UsersController(IMapper imapper)
+    // {
+    //     _userManager = userManager;
+    //     _mapper = mapper;
+    // }
 
-    private readonly IMapper _imapper;
-    [HttpPost]
-    public async Task<IActionResult> Register(RegisterDto registerDto)
-    {
-        _mapper.Map<User>(registerDto);
-        var user = new User
-        {
-            UserName = registerDto.CpfCnpj
-        };
+    // private readonly IMapper _imapper;
+    // [HttpPost]
+    // public async Task<IActionResult> Register(RegisterDto registerDto)
+    // {
+    //     _mapper.Map<User>(registerDto);
+    //     var user = new User
+    //     {
+    //         UserName = registerDto.CpfCnpj
+    //     };
 
-        var result = await _userManager.CreateAsync(user, registerDto.Password);
+    //     var result = await _userManager.CreateAsync(user, registerDto.Password);
 
-        if (result.Succeeded)
-        {
-            return Ok();
-        }
+    //     if (result.Succeeded)
+    //     {
+    //         return Ok();
+    //     }
 
-        return BadRequest();
-    }
+    //     return BadRequest();
+    // }
 }

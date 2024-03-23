@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Npgsql;
+
 
 namespace dotnet_banco_digital.Controllers;
 
@@ -38,47 +38,47 @@ public class UsuariosController : ControllerBase
 
 
 
-    [HttpPost("cadastro")]
-    public async Task<ActionResult<Usuario>> CadastraUsuario(UsuarioRequestDto usuarioRequest)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+    // [HttpPost("cadastro")]
+    // public async Task<ActionResult<Usuario>> CadastraUsuario(UsuarioRequestDto usuarioRequest)
+    // {
+    //     if (!ModelState.IsValid)
+    //     {
+    //         return BadRequest(ModelState);
+    //     }
 
-        usuarioRequest.SenhaLogin = BCrypt.Net.BCrypt.HashPassword(usuarioRequest.SenhaLogin);
+    //     usuarioRequest.SenhaLogin = BCrypt.Net.BCrypt.HashPassword(usuarioRequest.SenhaLogin);
 
-        Usuario novoUsuario = _mapper.Map<Usuario>(usuarioRequest);
+    //     Usuario novoUsuario = _mapper.Map<Usuario>(usuarioRequest);
 
-        try
-        {
-            _context.Usuarios.Add(novoUsuario);
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateException ex) when ((ex.InnerException as PostgresException)?.SqlState == "23505")
-        {
-            var errorMessage = ex.InnerException.Message;
-            if (errorMessage.Contains("IX_Usuarios_Email"))
-            {
-                return Conflict("Email já cadastrado.");
-            }
+    //     try
+    //     {
+    //         _context.Usuarios.Add(novoUsuario);
+    //         await _context.SaveChangesAsync();
+    //     }
+    //     catch (DbUpdateException ex) when ((ex.InnerException as PostgresException)?.SqlState == "23505")
+    //     {
+    //         var errorMessage = ex.InnerException.Message;
+    //         if (errorMessage.Contains("IX_Usuarios_Email"))
+    //         {
+    //             return Conflict("Email já cadastrado.");
+    //         }
 
-            if (errorMessage.Contains("IX_Usuarios_Cpf"))
-            {
-                return Conflict("CPF já cadastrado.");
-            }
-        }
-        catch (DbUpdateException ex)
-        {
+    //         if (errorMessage.Contains("IX_Usuarios_Cpf"))
+    //         {
+    //             return Conflict("CPF já cadastrado.");
+    //         }
+    //     }
+    //     catch (DbUpdateException ex)
+    //     {
 
-            return StatusCode(500, "Erro interno do servidor.");
-        }
+    //         return StatusCode(500, "Erro interno do servidor.");
+    //     }
 
-        var usuarioResponseDto = _mapper.Map<UsuarioResponseDto>(novoUsuario);
-        return CreatedAtAction("GetUsuario", new { id = novoUsuario.Id }, usuarioResponseDto);
+    //     var usuarioResponseDto = _mapper.Map<UsuarioResponseDto>(novoUsuario);
+    //     return CreatedAtAction("GetUsuario", new { id = novoUsuario.Id }, usuarioResponseDto);
 
-        //return CreatedAtAction("GetUsuario", new { id = novoUsuario.Id }, novoUsuario);
-    }
+    //     //return CreatedAtAction("GetUsuario", new { id = novoUsuario.Id }, novoUsuario);
+    // }
 
 
 
@@ -123,68 +123,68 @@ public class UsuariosController : ControllerBase
 
 
 
-    [HttpGet("{id}")]
-    [Authorize]
-    public async Task<ActionResult<UsuarioResponseDto>> GetUsuario(int id)
-    {
-        var usuario = await _context.Usuarios.FindAsync(id);
-        if (usuario == null)
-        {
-            return NotFound();
-        }
-        UsuarioResponseDto usuarioResponse = _mapper.Map<UsuarioResponseDto>(usuario);
-        return usuarioResponse;
-    }
+    // [HttpGet("{id}")]
+    // [Authorize]
+    // public async Task<ActionResult<UsuarioResponseDto>> GetUsuario(int id)
+    // {
+    //     var usuario = await _context.Usuarios.FindAsync(id);
+    //     if (usuario == null)
+    //     {
+    //         return NotFound();
+    //     }
+    //     UsuarioResponseDto usuarioResponse = _mapper.Map<UsuarioResponseDto>(usuario);
+    //     return usuarioResponse;
+    // }
 
-    [HttpGet("{id}/saldo")]
-    public async Task<IActionResult> ConsultarSaldo(int id)
-    {
-        var conta = await _context.Contas.FindAsync(id);
+    // [HttpGet("{id}/saldo")]
+    // public async Task<IActionResult> ConsultarSaldo(int id)
+    // {
+    //     var conta = await _context.Contas.FindAsync(id);
 
-        if (conta == null)
-        {
-            return NotFound("Conta não encontrada.");
-        }
+    //     if (conta == null)
+    //     {
+    //         return NotFound("Conta não encontrada.");
+    //     }
 
-        return Ok(conta.Saldo);
-    }
+    //     return Ok(conta.Saldo);
+    // }
 
-    [HttpPost("{id}/deposito")]
-    public async Task<IActionResult> Deposito(int id, [FromBody] decimal valor)
-    {
-        var conta = await _context.Contas.FindAsync(id);
+    // [HttpPost("{id}/deposito")]
+    // public async Task<IActionResult> Deposito(int id, [FromBody] decimal valor)
+    // {
+    //     var conta = await _context.Contas.FindAsync(id);
 
-        if (conta == null)
-        {
-            return NotFound("Conta não encontrada.");
-        }
+    //     if (conta == null)
+    //     {
+    //         return NotFound("Conta não encontrada.");
+    //     }
 
-        conta.Saldo += valor;
-        await _context.SaveChangesAsync();
+    //     conta.Saldo += valor;
+    //     await _context.SaveChangesAsync();
 
-        return Ok(conta.Saldo);
-    }
+    //     return Ok(conta.Saldo);
+    // }
 
-    [HttpPost("{id}/saque")]
-    public async Task<IActionResult> Saque(int id, [FromBody] decimal valor)
-    {
-        var conta = await _context.Contas.FindAsync(id);
+    // [HttpPost("{id}/saque")]
+    // public async Task<IActionResult> Saque(int id, [FromBody] decimal valor)
+    // {
+    //     var conta = await _context.Contas.FindAsync(id);
 
-        if (conta == null)
-        {
-            return NotFound("Conta não encontrada.");
-        }
+    //     if (conta == null)
+    //     {
+    //         return NotFound("Conta não encontrada.");
+    //     }
 
-        if (conta.Saldo < valor)
-        {
-            return BadRequest("Saldo insuficiente.");
-        }
+    //     if (conta.Saldo < valor)
+    //     {
+    //         return BadRequest("Saldo insuficiente.");
+    //     }
 
-        conta.Saldo -= valor;
-        await _context.SaveChangesAsync();
+    //     conta.Saldo -= valor;
+    //     await _context.SaveChangesAsync();
 
-        return Ok(conta.Saldo);
-    }
+    //     return Ok(conta.Saldo);
+    // }
 
 
 
@@ -242,117 +242,117 @@ public class UsuariosController : ControllerBase
     // }
 
 
-    [HttpGet("usuario/{usuarioId}/transacao/{transacaoId}")]
-    public async Task<ActionResult<Transacao>> GetByIdTransacao(int usuarioId, int transacaoId)
-    {
-        var transacao = await _context.Transacoes
-            .Where(t => (t.UsuarioOrigemId == usuarioId || t.UsuarioDestinoId == usuarioId) && t.Id == transacaoId)
-            .FirstOrDefaultAsync();
+    // [HttpGet("usuario/{usuarioId}/transacao/{transacaoId}")]
+    // public async Task<ActionResult<Transacao>> GetByIdTransacao(int usuarioId, int transacaoId)
+    // {
+    //     var transacao = await _context.Transacoes
+    //         .Where(t => (t.UsuarioOrigemId == usuarioId || t.UsuarioDestinoId == usuarioId) && t.Id == transacaoId)
+    //         .FirstOrDefaultAsync();
 
-        if (transacao == null)
-        {
-            return NotFound("Transação não encontrada para o usuário especificado.");
-        }
+    //     if (transacao == null)
+    //     {
+    //         return NotFound("Transação não encontrada para o usuário especificado.");
+    //     }
 
-        return transacao;
-    }
+    //     return transacao;
+    // }
 
-    [HttpGet("transacoes/{id}")]
-    public async Task<ActionResult<IEnumerable<Transacao>>> GetAllTransacoes(int id)
-    {
-        var transacoes = await _context.Transacoes
-            .Where(t => t.UsuarioOrigemId == id || t.UsuarioDestinoId == id)
-            .ToListAsync();
+    // [HttpGet("transacoes/{id}")]
+    // public async Task<ActionResult<IEnumerable<Transacao>>> GetAllTransacoes(int id)
+    // {
+    //     var transacoes = await _context.Transacoes
+    //         .Where(t => t.UsuarioOrigemId == id || t.UsuarioDestinoId == id)
+    //         .ToListAsync();
 
-        if (!transacoes.Any())
-        {
-            return NotFound("Nenhuma transação encontrada para o usuário especificado.");
-        }
+    //     if (!transacoes.Any())
+    //     {
+    //         return NotFound("Nenhuma transação encontrada para o usuário especificado.");
+    //     }
 
-        return transacoes;
-    }
-
-
-    [HttpPost("pf/cadastro")]
-    public async Task<IActionResult> CadastrarPessoaFisica([FromBody] PessoaFisica pessoaFisica)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
-        try
-        {
-            _context.PessoasFisicas.Add(pessoaFisica);
-            await _context.SaveChangesAsync();
-            return Ok(pessoaFisica);
-        }
-        catch (DbUpdateException)
-        {
-            return BadRequest("Não foi possível salvar a Pessoa Física.");
-        }
-    }
+    //     return transacoes;
+    // }
 
 
-    [HttpPost("pj/cadastro")]
-    public async Task<IActionResult> CadastrarPessoaJuridica([FromBody] PessoaJuridica pessoaJuridica)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+    // [HttpPost("pf/cadastro")]
+    // public async Task<IActionResult> CadastrarPessoaFisica([FromBody] PessoaFisica pessoaFisica)
+    // {
+    //     if (!ModelState.IsValid)
+    //     {
+    //         return BadRequest(ModelState);
+    //     }
 
-        try
-        {
-            _context.PessoasJuridicas.Add(pessoaJuridica);
-            await _context.SaveChangesAsync();
-            return Ok(pessoaJuridica);
-        }
-        catch (DbUpdateException)
-        {
-            return BadRequest("Não foi possível salvar a Pessoa Jurídica.");
-        }
-    }
+    //     try
+    //     {
+    //         _context.PessoasFisicas.Add(pessoaFisica);
+    //         await _context.SaveChangesAsync();
+    //         return Ok(pessoaFisica);
+    //     }
+    //     catch (DbUpdateException)
+    //     {
+    //         return BadRequest("Não foi possível salvar a Pessoa Física.");
+    //     }
+    // }
 
-    [HttpPost("conta")]
-    public async Task<IActionResult> CadastrarConta([FromBody] Conta conta)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
 
-        try
-        {
-            _context.Contas.Add(conta);
-            await _context.SaveChangesAsync();
-            return Ok(conta);
-        }
-        catch (DbUpdateException)
-        {
-            return BadRequest("Não foi possível salvar a Conta.");
-        }
-    }
+    // [HttpPost("pj/cadastro")]
+    // public async Task<IActionResult> CadastrarPessoaJuridica([FromBody] PessoaJuridica pessoaJuridica)
+    // {
+    //     if (!ModelState.IsValid)
+    //     {
+    //         return BadRequest(ModelState);
+    //     }
 
-    [HttpPost("cartao")]
-    public async Task<IActionResult> CadastrarCartao([FromBody] Cartao cartao)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+    //     try
+    //     {
+    //         _context.PessoasJuridicas.Add(pessoaJuridica);
+    //         await _context.SaveChangesAsync();
+    //         return Ok(pessoaJuridica);
+    //     }
+    //     catch (DbUpdateException)
+    //     {
+    //         return BadRequest("Não foi possível salvar a Pessoa Jurídica.");
+    //     }
+    // }
 
-        try
-        {
-            _context.Cartoes.Add(cartao);
-            await _context.SaveChangesAsync();
-            return Ok(cartao);
-        }
-        catch (DbUpdateException)
-        {
-            return BadRequest("Não foi possível salvar o Cartão.");
-        }
-    }
+    // [HttpPost("conta")]
+    // public async Task<IActionResult> CadastrarConta([FromBody] Conta conta)
+    // {
+    //     if (!ModelState.IsValid)
+    //     {
+    //         return BadRequest(ModelState);
+    //     }
+
+    //     try
+    //     {
+    //         _context.Contas.Add(conta);
+    //         await _context.SaveChangesAsync();
+    //         return Ok(conta);
+    //     }
+    //     catch (DbUpdateException)
+    //     {
+    //         return BadRequest("Não foi possível salvar a Conta.");
+    //     }
+    // }
+
+    // [HttpPost("cartao")]
+    // public async Task<IActionResult> CadastrarCartao([FromBody] Cartao cartao)
+    // {
+    //     if (!ModelState.IsValid)
+    //     {
+    //         return BadRequest(ModelState);
+    //     }
+
+    //     try
+    //     {
+    //         _context.Cartoes.Add(cartao);
+    //         await _context.SaveChangesAsync();
+    //         return Ok(cartao);
+    //     }
+    //     catch (DbUpdateException)
+    //     {
+    //         return BadRequest("Não foi possível salvar o Cartão.");
+    //     }
+    // }
 
 
 }

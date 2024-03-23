@@ -6,31 +6,31 @@ using StarPay.Infra.Services;
 [Route("[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly UserService _userService;
-    private readonly TokenServices _tokenServices;
+    // private readonly UserService _userService;
+    // private readonly TokenServices _tokenServices;
 
-    public AuthController(UserService userService, TokenServices tokenServices)
-    {
-        _userService = userService;
-        _tokenServices = tokenServices;
-    }
+    // public AuthController(UserService userService, TokenServices tokenServices)
+    // {
+    //     _userService = userService;
+    //     _tokenServices = tokenServices;
+    // }
 
-    [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto login)
-    {
-        if (string.IsNullOrEmpty(login.CpfCnpj) || string.IsNullOrEmpty(login.Password))
-        {
-            return BadRequest("CPF/CNPJ e senha precisam ser informados");
-        }
+    // [HttpPost("login")]
+    // public async Task<IActionResult> Login([FromBody] LoginDto login)
+    // {
+    //     if (string.IsNullOrEmpty(login.CpfCnpj) || string.IsNullOrEmpty(login.Password))
+    //     {
+    //         return BadRequest("CPF/CNPJ e senha precisam ser informados");
+    //     }
 
-        var user = await _userService.GetUserByLoginAsync(login.CpfCnpj, login.Password);
-        if (user == null)
-        {
-            return BadRequest("CPF/CNPJ ou senha inválidos");
-        }
+    //     var user = await _userService.GetUserByLoginAsync(login.CpfCnpj, login.Password);
+    //     if (user == null)
+    //     {
+    //         return BadRequest("CPF/CNPJ ou senha inválidos");
+    //     }
 
-        var token = _tokenServices.GenerateTokenJwt(user);
+    //     var token = _tokenServices.GenerateTokenJwt(user);
 
-        return Ok(new { token });
-    }
+    //     return Ok(new { token });
+    // }
 }

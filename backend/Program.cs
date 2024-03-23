@@ -1,38 +1,72 @@
-﻿using StarBank.Domain;
-using StarBank.Domain.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers();   // controller
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConectionString");
+builder.Services.
+    AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddDbContext<StarDbContext>(options =>
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresDatabase")));
+
+
+// builder.Services.AddDbContext<DbContext>(options =>
+// {
+//     options.UseSqlite("SqliteDatabase");
+// });
+builder.Services.AddDbContext<DbContext>(options =>
 {
-    options.UseSqlite("DefaultConectionString");
+    options.UseSqlite(builder.Configuration.GetConnectionString("SqliteDatabase"));
 });
 
-builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<StarDbContext>().AddDefaultTokenProviders();
 
+// experimentando acessar o HttpContext atual, que contém informações sobre o usuário autenticado
+builder.Services.AddHttpContextAccessor();
 
+// experimentando adicionar serviço de autenticação
+//builder.Services.AddScoped<IAutenticacaoService, AutenticacaoService>();
 
-    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-    var app = builder.Build();
-
-    if (app.Environment.IsDevelopment())
+// experimentando adicionar jwt
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 
-    app.UseHttpsRedirection();
+builder.Services.AddAuthorization();
 
-    app.MapControllers();
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthentication(); // jwt
+app.UseAuthorization(); // jwt
+app.MapControllers();   // controller
+app.Run();
 
 
-    app.Run();
+
