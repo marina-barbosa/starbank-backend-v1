@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComprovanteComponent } from './comprovante.component';
+import { DeniedComponent } from './denied.component';
 
-describe('ComprovanteComponent', () => {
-  let component: ComprovanteComponent;
-  let fixture: ComponentFixture<ComprovanteComponent>;
+describe('DeniedComponent', () => {
+  let component: DeniedComponent;
+  let fixture: ComponentFixture<DeniedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ComprovanteComponent]
+      imports: [DeniedComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ComprovanteComponent);
+    fixture = TestBed.createComponent(DeniedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
