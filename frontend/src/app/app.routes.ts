@@ -12,6 +12,7 @@ import { ConfirmacaoComponent } from './modal/confirmacao/confirmacao.component'
 import { NegacaoComponent } from './modal/negacao/negacao.component';
 import { PixComponent } from './payments/pix/pix.component';
 import { TicketComponent } from './payments/ticket/ticket.component';
+import { WithdrawalComponent } from './payments/withdrawal/withdrawal.component';
 
 export const routes: Routes = [
 
@@ -28,6 +29,7 @@ export const routes: Routes = [
   { path: 'negacao', component: NegacaoComponent },
   {path: 'pix', component: PixComponent},
   {path: 'ticket', component: TicketComponent},
+  {path: 'withdrawal', component: WithdrawalComponent},
   { path: '**', redirectTo: 'land' },
 ];
 

@@ -8,6 +8,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ModalTourComponent } from './components/modal-tour/modal-tour.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { WithdrawalComponent } from './payments/withdrawal/withdrawal.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 
-  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, ModalTourComponent, NavbarComponent,],
+  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, ModalTourComponent, NavbarComponent, WithdrawalComponent],
 
 })
 export class AppComponent {

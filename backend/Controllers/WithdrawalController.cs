@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace StarBank.Controllers;
 
 [ApiController]
@@ -17,7 +18,9 @@ public class WithdrawController : ControllerBase
             return BadRequest("Campos obrigatórios não foram fornecidos.");
         }
 
-        var account = DbContext.Account.FirstOrDefault(c => c.Id == request.AccountId);
+
+        var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
+
         if (account == null)
         {
             return NotFound("Conta não encontrada");

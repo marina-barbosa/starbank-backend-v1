@@ -8,5 +8,6 @@ public class WithdrawalRequest
     public int AccountId { get; set; }
     public double Value { get; set; }
     public string? Password { get; set; }
+
 }
  
