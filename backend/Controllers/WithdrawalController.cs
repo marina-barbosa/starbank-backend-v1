@@ -2,9 +2,6 @@
 using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using StarBank.Domain.Models;
 
 namespace StarBank.Controllers;
 
@@ -26,7 +23,8 @@ public class WithdrawController(IConfiguration appSettings, AppDbContext context
             return BadRequest("Campos obrigatórios não foram fornecidos.");
         }
 
-        var account = DbContext.Account.FirstOrDefault(c => c.Id == request.AccountId);
+        var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
+
         if (account == null)
         {
             return NotFound("Conta não encontrada");
