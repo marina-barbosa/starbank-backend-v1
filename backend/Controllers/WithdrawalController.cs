@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace StarBank.Controllers;
 
@@ -17,6 +19,7 @@ public class WithdrawController : ControllerBase
         }
 
         var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
+
         if (account == null)
         {
             return NotFound("Conta não encontrada");
