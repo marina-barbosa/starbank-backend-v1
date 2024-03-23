@@ -24,41 +24,41 @@ public class WithdrawController(IConfiguration appSettings, AppDbContext context
             return BadRequest("Campos obrigatórios não foram fornecidos.");
         }
 
-        // var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
+        var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
 
-        // if (account == null)
-        // {
-        //     return NotFound("Conta não encontrada");
-        // }
+        if (account == null)
+        {
+            return NotFound("Conta não encontrada");
+        }
 
-        // if (account.Balance < request.Value)
-        // {
-        //     return BadRequest("Saldo insuficiente");
-        // }
+        if (account.Balance < request.Value)
+        {
+            return BadRequest("Saldo insuficiente");
+        }
 
         try
         {
-            // // Verificar a senha usando JWT (exemplo)
-            // var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            // var userId = JWTService.GetUserIdFromToken(token); // Implemente este método de acordo com a sua lógica de JWT
-            // var user = _context.Client.FirstOrDefault(u => u.Id == userId);
+            // Verificar a senha usando JWT (exemplo)
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var userId = JWTService.GetUserIdFromToken(token); // Implemente este método de acordo com a sua lógica de JWT
+            var user = _context.Client.FirstOrDefault(u => u.Id == userId);
 
-            // if (user == null || user.Password != request.Password)
-            // {
-            //     return Unauthorized("Senha inválida");
-            // }
+            if (user == null || user.Password != request.Password)
+            {
+                return Unauthorized("Senha inválida");
+            }
 
-            // account.Balance -= request.Value;
-            // _context.SaveChanges();
+            account.Balance -= request.Value;
+            _context.SaveChanges();
 
-            // var transaction = new Transaction
-            // {
-            //     AccountId = account.Id,
-            //     Amount = -request.Value,
-            //     Date = DateTime.Now
-            // };
-            // _context.Transactions.Add(transaction);
-            // _context.SaveChanges();
+            var transaction = new Transaction
+            {
+                AccountId = account.Id,
+                Amount = -request.Value,
+                Date = DateTime.Now
+            };
+            _context.Transactions.Add(transaction);
+            _context.SaveChanges();
 
             return Ok("Saque realizado com sucesso!");
         }

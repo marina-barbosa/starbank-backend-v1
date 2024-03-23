@@ -12,3 +12,22 @@ namespace StarBank.Domain.Profiles
         }
     }
 }
+
+
+
+
+// using AutoMapper;
+// using dotnet_banco_digital.Domain.Dtos;
+
+// namespace dotnet_banco_digital.Domain.Profiles;
+
+// public class UserProfile : Profile
+// {
+
+//     public UserProfile()
+//     {
+//         CreateMap<Usuario, UsuarioResponseDto>();
+//         CreateMap<UsuarioRequestDto, Usuario>();
+//     }
+
+// }
