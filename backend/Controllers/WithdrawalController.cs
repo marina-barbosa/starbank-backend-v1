@@ -18,7 +18,6 @@ public class WithdrawController : ControllerBase
             return BadRequest("Campos obrigatórios não foram fornecidos.");
         }
 
-
         var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
 
         if (account == null)
