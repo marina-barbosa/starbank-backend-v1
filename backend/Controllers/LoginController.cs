@@ -1,7 +1,5 @@
 namespace StarBank.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
-using StarPay.Domain.DTOs;
 using StarPay.Infra.Services;
 
 [ApiController]

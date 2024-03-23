@@ -1,14 +1,12 @@
 namespace StarPay.Infra.Services;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 
 public class TokenServices
 {
-    private IConfiguration configuration;
+    private readonly IConfiguration _configuration;
 
     public TokenServices(IConfiguration configuration)
     {
