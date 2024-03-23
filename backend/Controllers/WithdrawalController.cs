@@ -1,11 +1,21 @@
+
+using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using StarBank.Domain.Models;
 
 namespace StarBank.Controllers;
 
 [ApiController]
 [Route("[withdraw]")]
-public class WithdrawController : ControllerBase
+public class WithdrawController(IConfiguration appSettings, AppDbContext context) : ControllerBase
 {
+    //private readonly IAutenticacaoService _autenticacaoService;
+    private readonly IConfiguration _appSettings = appSettings;
+    private readonly AppDbContext _context = context;
+
     [HttpPost]
     [Authorize]
     public IActionResult Withdraw([FromBody] WithdrawalRequest request)
@@ -16,7 +26,7 @@ public class WithdrawController : ControllerBase
             return BadRequest("Campos obrigatórios não foram fornecidos.");
         }
 
-        var account = _context.Account.FirstOrDefault(c => c.Id == request.AccountId);
+        var account = DbContext.Account.FirstOrDefault(c => c.Id == request.AccountId);
         if (account == null)
         {
             return NotFound("Conta não encontrada");
@@ -42,7 +52,7 @@ public class WithdrawController : ControllerBase
             account.Balance -= request.Value;
             _context.SaveChanges();
 
-                var transaction = new Transaction
+            var transaction = new Transaction
             {
                 AccountId = account.Id,
                 Amount = -request.Value,
@@ -55,15 +65,15 @@ public class WithdrawController : ControllerBase
         }
         catch (UnauthorizedAccessException)
         {
-            return StatusCode(401, "Não autorizado"); 
+            return StatusCode(401, "Não autorizado");
         }
         catch (ForbiddenAccessException)
         {
-            return StatusCode(403, "Proibido"); 
+            return StatusCode(403, "Proibido");
         }
         catch (Exception ex)
         {
-            return StatusCode(500, "Erro interno do servidor."); 
+            return StatusCode(500, "Erro interno do servidor.");
         }
         catch (Exception ex)
         {

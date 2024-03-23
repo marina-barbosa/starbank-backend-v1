@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StarBank
-build_property.ProjectDir = C:\Users\aline\Desktop\sharpcoders\StarPay\backend\
+build_property.ProjectDir = D:\Develop\Projetos\StarPay\backend\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
