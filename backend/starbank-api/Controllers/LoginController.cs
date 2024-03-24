@@ -13,14 +13,14 @@ public class LoginController : ControllerBase
 {
     private readonly IAutenticacaoService _autenticacaoService;
     private readonly TokenServices _tokenServices;
+    // private readonly SignInManager<IdentityUser> _signInManager;
+    // SignInManager<IdentityUser> signInManager
 
-    private readonly SignInManager<IdentityUser> _signInManager;
-
-    public LoginController(IAutenticacaoService autenticacaoService, TokenServices tokenServices, SignInManager<IdentityUser> signInManager)
+    public LoginController(IAutenticacaoService autenticacaoService, TokenServices tokenServices)
     {
         _autenticacaoService = autenticacaoService;
         _tokenServices = tokenServices;
-        _signInManager = signInManager;
+        // _signInManager = signInManager;
     }
 
     [HttpPost("login")]
@@ -39,12 +39,12 @@ public class LoginController : ControllerBase
     }
 
 
-    [HttpPost("logout")]
-    public async Task<IActionResult> Logout()
-    {
-        await _signInManager.SignOutAsync();
-        return RedirectToAction("Index", "Home");
-    }
+    // [HttpPost("logout")]
+    // public async Task<IActionResult> Logout()
+    // {
+    //     await _signInManager.SignOutAsync();
+    //     return RedirectToAction("Index", "Home");
+    // }
 
     // [HttpPost("login")]
     // public async Task<IActionResult> Login([FromBody] LoginDto login)

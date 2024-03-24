@@ -28,37 +28,37 @@ public class CustomerController : ControllerBase
 
 
 
-    [HttpPost("register")]
-    public async Task<ActionResult<Customer>> Register(CustomerRequestDto customerRequest)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
+    // [HttpPost("register")]
+    // public async Task<ActionResult<Customer>> Register(CustomerRequestDto customerRequest)
+    // {
+    //     if (!ModelState.IsValid)
+    //     {
+    //         return BadRequest(ModelState);
+    //     }
 
-        customerRequest.LoginPassword = BCrypt.Net.BCrypt.HashPassword(customerRequest.LoginPassword);
+    //     customerRequest.LoginPassword = BCrypt.Net.BCrypt.HashPassword(customerRequest.LoginPassword);
 
-        Customer newCustomer = _mapper.Map<Customer>(customerRequest);
+    //     Customer newCustomer = _mapper.Map<Customer>(customerRequest);
 
-        newCustomer.AcceptedTerm = true;
-        newCustomer.ActiveAccount = true;
-        newCustomer.CreatedAt = DateTime.Now;
-        newCustomer.UpdatedAt = DateTime.Now;
+    //     newCustomer.AcceptedTerm = true;
+    //     newCustomer.ActiveAccount = true;
+    //     newCustomer.CreatedAt = DateTime.Now;
+    //     newCustomer.UpdatedAt = DateTime.Now;
 
-        try
-        {
-            _context.Customers.Add(newCustomer);
-            await _context.SaveChangesAsync();
+    //     try
+    //     {
+    //         _context.Customers.Add(newCustomer);
+    //         await _context.SaveChangesAsync();
 
-        }
-        catch (DbUpdateException ex)
-        {
-            return StatusCode(500, $"Erro interno do servidor: {ex.Message}");
-        }
+    //     }
+    //     catch (DbUpdateException ex)
+    //     {
+    //         return StatusCode(500, $"Erro interno do servidor: {ex.Message}");
+    //     }
 
-        var customerResponseDto = _mapper.Map<CustomerResponseDto>(newCustomer);
-        return CreatedAtAction("GetCustomer", new { id = newCustomer.Id }, customerResponseDto);
-    }
+    //     var customerResponseDto = _mapper.Map<CustomerResponseDto>(newCustomer);
+    //     return CreatedAtAction("GetCustomer", new { id = newCustomer.Id }, customerResponseDto);
+    // }
 
 
 
@@ -80,50 +80,50 @@ public class CustomerController : ControllerBase
 
 
 
-    [HttpPost("address")]
-    public IActionResult AddressRegister(Address newAddress)
-    {
-        _context.Addresses.Add(newAddress);
-        _context.SaveChanges();
+    // [HttpPost("address")]
+    // public IActionResult AddressRegister(Address newAddress)
+    // {
+    //     _context.Addresses.Add(newAddress);
+    //     _context.SaveChanges();
 
-        return Ok("Created!");
-    }
+    //     return Ok("Created!");
+    // }
 
-    [HttpPost("account")]
-    public IActionResult CreateAccount(Account newAccount)
-    {
-        _context.Accounts.Add(newAccount);
-        _context.SaveChanges();
+    // [HttpPost("account")]
+    // public IActionResult CreateAccount(Account newAccount)
+    // {
+    //     _context.Accounts.Add(newAccount);
+    //     _context.SaveChanges();
 
-        return Ok("Created!");
-    }
+    //     return Ok("Created!");
+    // }
 
-    [HttpPost("card")]
-    public IActionResult CreateCard(Card newCard)
-    {
-        _context.Cards.Add(newCard);
-        _context.SaveChanges();
+    // [HttpPost("card")]
+    // public IActionResult CreateCard(Card newCard)
+    // {
+    //     _context.Cards.Add(newCard);
+    //     _context.SaveChanges();
 
-        return Ok("Created!");
-    }
+    //     return Ok("Created!");
+    // }
 
-    [HttpPost("legalentity")]
-    public IActionResult CreateLegalEntity(LegalEntity newLegalEntity)
-    {
-        _context.LegalEntities.Add(newLegalEntity);
-        _context.SaveChanges();
+    // [HttpPost("legalentity")]
+    // public IActionResult CreateLegalEntity(LegalEntity newLegalEntity)
+    // {
+    //     _context.LegalEntities.Add(newLegalEntity);
+    //     _context.SaveChanges();
 
-        return Ok("Created!");
-    }
+    //     return Ok("Created!");
+    // }
 
-    [HttpPost("naturalperson")]
-    public IActionResult CreateNaturalPerson(NaturalPerson newNaturalPerson)
-    {
-        _context.NaturalPersons.Add(newNaturalPerson);
-        _context.SaveChanges();
+    // [HttpPost("naturalperson")]
+    // public IActionResult CreateNaturalPerson(NaturalPerson newNaturalPerson)
+    // {
+    //     _context.NaturalPersons.Add(newNaturalPerson);
+    //     _context.SaveChanges();
 
-        return Ok("Created!");
-    }
+    //     return Ok("Created!");
+    // }
 
 
     //     // [HttpPost("pf/cadastro")]

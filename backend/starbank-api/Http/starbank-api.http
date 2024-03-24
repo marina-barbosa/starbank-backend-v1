@@ -1,6 +1,6 @@
 @URL = http://localhost:5287
 
-@TOKEN = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aGVMb2dhZG9nIiwiZW1haWwiOiJkb2dAZW1haWwuY29tIiwianRpIjoiYTJlYTUzNGItNGVlZS00OTVkLTg0N2MtMmIyMDA1YjQ0MjVjIiwibmJmIjoxNzExMDk1MzEyLCJleHAiOjE3MTExMDI1MTIsImlhdCI6MTcxMTA5NTMxMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjE2IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjE2In0.mZFBN8BIU3mWwec-DI792UQJjqxQQuS5k1JzCB5DCEhawun73ei4tiAueoQuVZetNv9Jv_PteYPKml7NENpCcg
+@TOKEN = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJIb3J0ZW5jaWEiLCJlbWFpbCI6ImZsb3IxQGVtYWlsLmNvbSIsImp0aSI6IjUiLCJuYW1laWQiOiI1IiwibmJmIjoxNzExMzIxODM3LCJleHAiOjE3MTEzMjkwMzcsImlhdCI6MTcxMTMyMTgzNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1Mjg3IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1Mjg3In0.4IvomZX1R4rhyD4wCLTZaq-dFtWXqg6HT94zkA3PF7sjyCP5tjgGiWKD2noZJ2N2Ik88huFufZZ9VzVHyyPROg
 
 
 
@@ -21,15 +21,34 @@ content-type: application/json
 
 
 ###
-POST {{URL}}/v1/usuario/login
+POST {{URL}}/v1/customer/login
 content-type: application/json
 
 {
-  "email": "dog@email.com",
-  "senha": "string"
+  "email": "flor1@email.com",
+  "password": "string"
 }
 ###
 
+
+###
+GET {{URL}}/v1/account/customer
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+###
+GET {{URL}}/v1/account/account
+Authorization: Bearer {{TOKEN}}
+
+###
+
+###
+GET {{URL}}/v1/account/balance
+Authorization: Bearer {{TOKEN}}
+
+###
 
 
 ###
