@@ -4,11 +4,9 @@ using System.Text.Json.Serialization;
 
 namespace starbank_api.Domain.Models;
 
-public class Address
+public class Address : Entity
 {
-    [Key]
     [Required]
-    public int Id { get; set; }
     public int CustomerId { get; set; }
 
     [StringLength(100)]

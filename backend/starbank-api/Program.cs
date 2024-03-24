@@ -57,6 +57,7 @@ builder.Services.AddHttpContextAccessor();
 // experimentando adicionar serviço de autenticação
 builder.Services.AddScoped<IAutenticacaoService, AutenticacaoService>();
 builder.Services.AddScoped<TokenServices>();
+builder.Services.AddScoped<RegisterServices>();
 
 // experimentando adicionar jwt
 builder.Services.AddAuthentication(options =>

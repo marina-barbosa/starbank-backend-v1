@@ -75,12 +75,12 @@ public class AccountController : ControllerBase
         }
 
         // Retorna o saldo da conta do cliente com um status 200 - OK
-        return Ok(account.Balance);
+        return Ok(account.BalanceInCents);
     }
 
 
 
-    [HttpGet]
+    [HttpGet("card")]
     public ActionResult<Card> GetCartao()
     {
         // Recupera o ID do cliente a partir do token JWT
@@ -112,11 +112,11 @@ public class AccountController : ControllerBase
             return NotFound("Conta não encontrada.");
         }
 
-        return Ok(account.Balance);
+        return Ok(account.BalanceInCents);
     }
 
     [HttpPost("{id}/deposito")]
-    public async Task<IActionResult> Deposito(int id, [FromBody] decimal valor)
+    public async Task<IActionResult> Deposito(int id, [FromBody] int valor)
     {
         var conta = await _context.Accounts.FindAsync(id);
 
@@ -125,16 +125,16 @@ public class AccountController : ControllerBase
             return NotFound("Conta não encontrada.");
         }
 
-        conta.Balance = (double)((decimal)conta.Balance + valor);
+        conta.BalanceInCents = conta.BalanceInCents + valor;
 
 
         await _context.SaveChangesAsync();
 
-        return Ok(conta.Balance);
+        return Ok(conta.BalanceInCents);
     }
 
     [HttpPost("{id}/saque")]
-    public async Task<IActionResult> Saque(int id, [FromBody] double valor)
+    public async Task<IActionResult> Saque(int id, [FromBody] int valor)
     {
         var conta = await _context.Accounts.FindAsync(id);
 
@@ -143,21 +143,21 @@ public class AccountController : ControllerBase
             return NotFound("Conta não encontrada.");
         }
 
-        if (conta.Balance < valor)
+        if (conta.BalanceInCents < valor)
         {
             return BadRequest("Saldo insuficiente.");
         }
 
-        conta.Balance -= valor;
+        conta.BalanceInCents -= valor;
         await _context.SaveChangesAsync();
 
-        return Ok(conta.Balance);
+        return Ok(conta.BalanceInCents);
     }
 
 
 
     [HttpPatch("deposito/{id}")]
-    public async Task<IActionResult> RealizarDeposito(int id, [FromBody] double valorDeposito)
+    public async Task<IActionResult> RealizarDeposito(int id, [FromBody] int valorDeposito)
     {
         var account = await _context.Accounts.FindAsync(id);
         if (account == null)
@@ -165,17 +165,17 @@ public class AccountController : ControllerBase
             return NotFound("Usuário não encontrado.");
         }
 
-        account.Balance += valorDeposito;
+        account.BalanceInCents += valorDeposito;
 
         _context.Accounts.Update(account);
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Depósito realizado com sucesso.", novoSaldo = account.Balance });
+        return Ok(new { message = "Depósito realizado com sucesso.", novoSaldo = account.BalanceInCents });
     }
 
 
     [HttpPatch("saque/{id}")]
-    public async Task<IActionResult> RealizarSaque(int id, [FromBody] double valorSaque)
+    public async Task<IActionResult> RealizarSaque(int id, [FromBody] int valorSaque)
     {
         var account = await _context.Accounts.FindAsync(id);
         if (account == null)
@@ -183,28 +183,28 @@ public class AccountController : ControllerBase
             return NotFound("Usuário não encontrado.");
         }
 
-        if (account.Balance < valorSaque)
+        if (account.BalanceInCents < valorSaque)
         {
             return BadRequest("Saldo insuficiente para realizar o saque.");
         }
 
-        account.Balance -= valorSaque;
+        account.BalanceInCents -= valorSaque;
 
         _context.Accounts.Update(account);
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Saque realizado com sucesso.", novoSaldo = account.Balance });
+        return Ok(new { message = "Saque realizado com sucesso.", novoSaldo = account.BalanceInCents });
     }
 
 
 
 
 
-    [HttpPost]
+    [HttpPost("transfer")]
     public ActionResult PostTransferencia(Transation transation)
     {
         // Verifica se os campos obrigatórios foram fornecidos
-        if (transation == null || transation.Value <= 0)
+        if (transation == null || transation.ValueInCents <= 0)
         {
             // Se algum campo obrigatório estiver faltando ou inválido, retorna um erro 400 - Bad Request
             return BadRequest("Campos obrigatórios não fornecidos ou inválidos");
@@ -212,21 +212,21 @@ public class AccountController : ControllerBase
 
         // Verifica se há saldo disponível na conta de origem
         var contaOrigem = _context.Accounts.Find(transation.OriginCustomerId);
-        if (contaOrigem == null || contaOrigem.Balance < transation.Value)
+        if (contaOrigem == null || contaOrigem.BalanceInCents < transation.ValueInCents)
         {
             // Se não houver saldo disponível, retorna um erro 400 - Bad Request
             return BadRequest("Saldo insuficiente na conta de origem");
         }
 
         // Atualiza o saldo da conta de origem e destino
-        contaOrigem.Balance -= transation.Value;
+        contaOrigem.BalanceInCents -= transation.ValueInCents;
         var contaDestino = _context.Accounts.Find(transation.TargetCustomerId);
         if (contaDestino == null)
         {
             // Se a conta de destino não existir, retorna um erro 400 - Bad Request
             return BadRequest("Conta de destino não encontrada");
         }
-        contaDestino.Balance += transation.Value;
+        contaDestino.BalanceInCents += transation.ValueInCents;
 
         // Salva as alterações no banco de dados
         _context.SaveChanges();
@@ -246,16 +246,16 @@ public class AccountController : ControllerBase
     {
 
         public int AccountId { get; set; }
-        public double Value { get; set; }
+        public int ValueInCents { get; set; }
         public string? Password { get; set; }
     }
 
-    [HttpPost]
+    [HttpPost("withdrawal")]
     [Authorize]
     public IActionResult Withdraw([FromBody] WithdrawalRequest request)
     {
         // Validar campos obrigatórios
-        if (request == null || request.AccountId == 0 || request.Value <= 0 || string.IsNullOrEmpty(request.Password))
+        if (request == null || request.AccountId == 0 || request.ValueInCents <= 0 || string.IsNullOrEmpty(request.Password))
         {
             return BadRequest("Campos obrigatórios não foram fornecidos.");
         }
@@ -267,20 +267,20 @@ public class AccountController : ControllerBase
             return NotFound("Conta não encontrada");
         }
 
-        if (account.Balance < request.Value)
+        if (account.BalanceInCents < request.ValueInCents)
         {
             return BadRequest("Saldo insuficiente");
         }
 
         try
         {
-            account.Balance -= request.Value;
+            account.BalanceInCents -= request.ValueInCents;
             _context.SaveChanges();
 
             var transaction = new Transation
             {
                 OriginCustomerId = account.Id,
-                Value = -request.Value,
+                ValueInCents = -request.ValueInCents,
                 TransactionDate = DateTime.Now
             };
 

@@ -5,10 +5,10 @@ using starbank_api.Domain.Models;
 
 namespace starbank_api.Domain.Profiles;
 
-public class CustomerProfile : Profile
+public class CustomerProfiles : Profile
 {
 
-    public CustomerProfile()
+    public CustomerProfiles()
     {
         CreateMap<Customer, CustomerResponseDto>();
         CreateMap<CustomerRequestDto, Customer>();

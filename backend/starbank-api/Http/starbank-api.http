@@ -70,4 +70,40 @@ content-type: application/json
 
 
 
+###
+POST {{URL}}/v1/customer/registracontapj
+content-type: application/json
 
+{
+  "customerRequest": {
+    "name": "Hortencia",
+    "email": "flor1@email.com",
+    "phone": "string",
+    "clientType": "PF",
+    "loginPassword": "string"
+  },
+  "addressRequest": {
+    "street": "Rua das Flores",
+    "city": "string",
+    "state": "string",
+    "zipCode": "string",
+    "country": "string",
+    "createdAt": "2024-03-24T21:44:24.500Z",
+    "updatedAt": "2024-03-24T21:44:24.500Z",
+    "deletedAt": "2024-03-24T21:44:24.500Z"
+  },
+  "legalEntityRequest": {
+    "cnpj": "18760000",
+    "fantasyName": "string",
+    "stateRegistration": "string",
+    "annualBillingInCents": 1099000,
+    "taxation": "string"
+  },
+  "accountRequest": {
+    "accountType": 0,
+    "keyPix": "pix2345234",
+    "passwordTransaction": "string",
+    "confirmPasswordTransaction": "string"
+  }
+}
+###

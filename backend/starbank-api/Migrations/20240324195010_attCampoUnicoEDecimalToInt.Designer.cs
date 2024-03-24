@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using starbank_api.Domain;
 
@@ -10,9 +11,11 @@ using starbank_api.Domain;
 namespace starbank_api.Migrations
 {
     [DbContext(typeof(StarDbContext))]
-    partial class StarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240324195010_attCampoUnicoEDecimalToInt")]
+    partial class attCampoUnicoEDecimalToInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");

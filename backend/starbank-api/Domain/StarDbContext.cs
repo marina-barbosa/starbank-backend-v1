@@ -22,23 +22,12 @@ public class StarDbContext : DbContext
         modelBuilder.Entity<Customer>()
             .HasIndex(x => x.Email)
             .IsUnique();
-
-        // modelBuilder.Entity<Customer>()
-        //     .Property(x => x.ContaAtiva)
-        //     .HasDefaultValue(true);
-
-        // modelBuilder.Entity<Customer>()
-        //     .Property(x => x.TermoAceito)
-        //     .HasDefaultValue(true);
-
-        // modelBuilder.Entity<Address>()
-        //     .Property(x => x.CriadoEm)
-        //     .HasDefaultValueSql("date('now')");
-
-        // modelBuilder.Entity<Address>()
-        //     .Property(x => x.AtualizadoEm)
-        //     .HasDefaultValueSql("date('now')");
-
+        modelBuilder.Entity<LegalEntity>()
+            .HasIndex(x => x.Cnpj)
+            .IsUnique();
+        modelBuilder.Entity<NaturalPerson>()
+            .HasIndex(x => x.Cpf)
+            .IsUnique();
 
     }
 }

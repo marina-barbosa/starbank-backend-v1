@@ -15,9 +15,7 @@ public enum AccountType
 
 public class Account : Entity
 {
-    [JsonIgnore]
-    public required Customer Customer { get; set; }
-    [ForeignKey("Customer")]
+    [Required]
     public int CustomerId { get; set; }
 
     [Required]
@@ -32,8 +30,8 @@ public class Account : Entity
     public AccountType AccountType { get; set; }
 
     [Required]
-    [Range(0, 99999999999999.99)]
-    public double Balance { get; set; }
+    [Range(0, 99999999999999)]
+    public int BalanceInCents { get; set; }
 
     [StringLength(50)]
     public required string KeyPix { get; set; }
@@ -44,6 +42,6 @@ public class Account : Entity
     public required string PasswordTransaction { get; set; }
 
     [Required]
-    [Compare("Password")]
+    [Compare("PasswordTransaction")]
     public required string ConfirmPasswordTransaction { get; set; }
 }

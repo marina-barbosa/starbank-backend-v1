@@ -13,7 +13,7 @@ public class Transation : Entity
 
     public DateTime TransactionDate { get; set; }
 
-    public double Value { get; set; }
+    public int ValueInCents { get; set; }
 
     public TransactionType TransactionType { get; set; }
 

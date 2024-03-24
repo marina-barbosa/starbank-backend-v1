@@ -49,6 +49,7 @@ public class CustomerController : ControllerBase
         {
             _context.Customers.Add(newCustomer);
             await _context.SaveChangesAsync();
+
         }
         catch (DbUpdateException ex)
         {
