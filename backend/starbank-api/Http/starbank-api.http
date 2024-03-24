@@ -1,0 +1,73 @@
+@URL = http://localhost:5287
+
+@TOKEN = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aGVMb2dhZG9nIiwiZW1haWwiOiJkb2dAZW1haWwuY29tIiwianRpIjoiYTJlYTUzNGItNGVlZS00OTVkLTg0N2MtMmIyMDA1YjQ0MjVjIiwibmJmIjoxNzExMDk1MzEyLCJleHAiOjE3MTExMDI1MTIsImlhdCI6MTcxMTA5NTMxMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjE2IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjE2In0.mZFBN8BIU3mWwec-DI792UQJjqxQQuS5k1JzCB5DCEhawun73ei4tiAueoQuVZetNv9Jv_PteYPKml7NENpCcg
+
+
+
+###
+POST {{URL}}/v1/customer/register
+content-type: application/json
+
+{
+  "nome": "dog1",
+  "email": "dog1@email.com",
+  "telefone": "12341234",
+  "tipoCliente": "PF",
+  "senhaLogin": "string"
+}
+
+###
+
+
+
+###
+POST {{URL}}/v1/usuario/login
+content-type: application/json
+
+{
+  "email": "dog@email.com",
+  "senha": "string"
+}
+###
+
+
+
+###
+GET {{URL}}/v1/usuario/17
+Authorization: Bearer {{TOKEN}}
+Accept: application/json
+
+###
+
+
+
+###
+GET {{URL}}/v1/usuario/logado
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+POST {{URL}}/v1/customer/addressregister
+content-type: application/json
+
+{
+  "id": 0,
+  "CustomerId": 1,
+  "rua": "string",
+  "cidade": "string",
+  "estado": "string",
+  "cep": "string",
+  "pais": "string",
+  "criadoEm": "2024-03-24T00:39:28.521Z",
+  "atualizadoEm": "2024-03-24T00:39:28.521Z",
+  "deletadoEm": "2024-03-24T00:39:28.521Z"
+}
+
+###
+
+
+
+
