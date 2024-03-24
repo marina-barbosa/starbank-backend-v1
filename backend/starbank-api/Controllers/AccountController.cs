@@ -63,11 +63,7 @@ public class AccountController : ControllerBase
     [HttpGet("balance")]
     public ActionResult<decimal> GetBalance()
     {
-
-
-        var id = _tokenServices.ExtractIdToken();
-        // Recupera o ID do cliente a partir do token JWT
-        var idCustomer = int.Parse(User.FindFirst(id).Value);
+        var idCustomer = int.Parse(_tokenServices.ExtractIdToken());
 
         // Busca a conta do cliente pelo ID
         var account = _context.Accounts.FirstOrDefault(x => x.CustomerId == idCustomer);
@@ -88,10 +84,10 @@ public class AccountController : ControllerBase
     public ActionResult<Card> GetCartao()
     {
         // Recupera o ID do cliente a partir do token JWT
-        var accountId = int.Parse(User.FindFirst("id").Value);
+        var idCustomer = int.Parse(_tokenServices.ExtractIdToken());
 
         // Busca o cartão do cliente pelo ID
-        var card = _context.Cards.FirstOrDefault(c => c.AccountId == accountId);
+        var card = _context.Cards.FirstOrDefault(c => c.AccountId == idCustomer);
 
         if (card == null)
         {
@@ -208,7 +204,7 @@ public class AccountController : ControllerBase
     public ActionResult PostTransferencia(Transation transation)
     {
         // Verifica se os campos obrigatórios foram fornecidos
-        if (transation == null || transation.OriginCustomerId == null || transation.TargetCustomerId == null || transation.Value <= 0)
+        if (transation == null || transation.Value <= 0)
         {
             // Se algum campo obrigatório estiver faltando ou inválido, retorna um erro 400 - Bad Request
             return BadRequest("Campos obrigatórios não fornecidos ou inválidos");
@@ -246,62 +242,63 @@ public class AccountController : ControllerBase
 
 
 
-    // public class WithdrawalRequest
-    // {
+    public class WithdrawalRequest
+    {
 
-    //     public int AccountId { get; set; }
-    //     public double Value { get; set; }
-    //     public string? Password { get; set; }
-    // }
+        public int AccountId { get; set; }
+        public double Value { get; set; }
+        public string? Password { get; set; }
+    }
 
-    // [HttpPost]
-    // [Authorize]
-    // public IActionResult Withdraw([FromBody] WithdrawalRequest request)
-    // {
-    //     // Validar campos obrigatórios
-    //     if (request == null || request.AccountId == 0 || request.Value <= 0 || string.IsNullOrEmpty(request.Password))
-    //     {
-    //         return BadRequest("Campos obrigatórios não foram fornecidos.");
-    //     }
+    [HttpPost]
+    [Authorize]
+    public IActionResult Withdraw([FromBody] WithdrawalRequest request)
+    {
+        // Validar campos obrigatórios
+        if (request == null || request.AccountId == 0 || request.Value <= 0 || string.IsNullOrEmpty(request.Password))
+        {
+            return BadRequest("Campos obrigatórios não foram fornecidos.");
+        }
 
-    //     var account = _context.Accounts.FirstOrDefault(c => c.Id == request.AccountId);
+        var account = _context.Accounts.FirstOrDefault(c => c.Id == request.AccountId);
 
-    //     if (account == null)
-    //     {
-    //         return NotFound("Conta não encontrada");
-    //     }
+        if (account == null)
+        {
+            return NotFound("Conta não encontrada");
+        }
 
-    //     if (account.Balance < request.Value)
-    //     {
-    //         return BadRequest("Saldo insuficiente");
-    //     }
+        if (account.Balance < request.Value)
+        {
+            return BadRequest("Saldo insuficiente");
+        }
 
-    //     try
-    //     {
-    //         account.Balance -= request.Value;
-    //         _context.SaveChanges();
+        try
+        {
+            account.Balance -= request.Value;
+            _context.SaveChanges();
 
-    //         var transaction = new Transation
-    //         {
-    //             AccountId = account.Id,
-    //             Amount = -request.Value,
-    //             Date = DateTime.Now
-    //         };
-    //         _context.Transactions.Add(transaction);
-    //         _context.SaveChanges();
+            var transaction = new Transation
+            {
+                OriginCustomerId = account.Id,
+                Value = -request.Value,
+                TransactionDate = DateTime.Now
+            };
 
-    //         return Ok("Saque realizado com sucesso!");
-    //     }
-    //     catch (UnauthorizedAccessException)
-    //     {
-    //         return StatusCode(401, "Não autorizado");
-    //     }
+            _context.Transations.Add(transaction);
+            _context.SaveChanges();
 
-    //     catch (Exception ex)
-    //     {
-    //         return StatusCode(500, "Erro interno do servidor.");
-    //     }
-    // }
+            return Ok("Saque realizado com sucesso!");
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return StatusCode(401, "Não autorizado");
+        }
+
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro interno do servidor: {ex.Message}");
+        }
+    }
 
 
 

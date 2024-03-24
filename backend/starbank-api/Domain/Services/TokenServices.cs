@@ -23,7 +23,12 @@ public class TokenServices
     {
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings["Jwt:Key"]);
+            var keyString = _appSettings["Jwt:Key"];
+            if (string.IsNullOrEmpty(keyString))
+            {
+                throw new ArgumentNullException("Jwt:Key", "A chave de assinatura JWT não pode ser nula ou vazia.");
+            }
+            var key = Encoding.ASCII.GetBytes(keyString);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -45,10 +50,16 @@ public class TokenServices
     public string ExtractIdToken()
     {
         var httpContext = _httpContextAccessor.HttpContext;
-        var token = httpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+        var token = httpContext?.Request.Headers.Authorization.ToString().Replace("Bearer ", "");
+        // var token = httpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_appSettings["Jwt:Key"]);
+        var keyString = _appSettings["Jwt:Key"];
+        if (string.IsNullOrEmpty(keyString))
+        {
+            throw new ArgumentNullException("Jwt:Key", "A chave de assinatura JWT não pode ser nula ou vazia.");
+        }
+        var key = Encoding.ASCII.GetBytes(keyString);
         try
         {
             tokenHandler.ValidateToken(token, new TokenValidationParameters

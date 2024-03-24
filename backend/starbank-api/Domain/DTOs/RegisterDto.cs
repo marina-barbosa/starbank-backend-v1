@@ -1,5 +1,5 @@
 // using System.ComponentModel.DataAnnotations;
-// namespace StarBank.Domain.DTOs
+// namespace starbank_api.Domain.Models;
 
 // {
 //     public class RegisterDto

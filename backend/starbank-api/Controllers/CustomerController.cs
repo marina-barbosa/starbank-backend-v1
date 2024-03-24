@@ -52,7 +52,7 @@ public class CustomerController : ControllerBase
         }
         catch (DbUpdateException ex)
         {
-            return StatusCode(500, "Erro interno do servidor.");
+            return StatusCode(500, $"Erro interno do servidor: {ex.Message}");
         }
 
         var customerResponseDto = _mapper.Map<CustomerResponseDto>(newCustomer);

@@ -1,22 +1,29 @@
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using starbank_api.Domain.Models;
 using starbank_api.Domain.Services;
+
+namespace starbank_api.Domain.Models;
 
 
 [ApiController]
-[Route("v1/customer/login")]
+[Route("v1/customer")]
 public class LoginController : ControllerBase
 {
     private readonly IAutenticacaoService _autenticacaoService;
     private readonly TokenServices _tokenServices;
 
-    public LoginController(IAutenticacaoService autenticacaoService, TokenServices tokenServices)
+    private readonly SignInManager<IdentityUser> _signInManager;
+
+    public LoginController(IAutenticacaoService autenticacaoService, TokenServices tokenServices, SignInManager<IdentityUser> signInManager)
     {
         _autenticacaoService = autenticacaoService;
         _tokenServices = tokenServices;
+        _signInManager = signInManager;
     }
 
-    [HttpPost]
+    [HttpPost("login")]
     public async Task<IActionResult> Login(LoginModel loginModel)
     {
         var customer = await _autenticacaoService.AutenticarCustomer(loginModel.Email, loginModel.Password);
@@ -29,6 +36,14 @@ public class LoginController : ControllerBase
         var token = _tokenServices.GenerateToken(customer);
 
         return Ok(new { message = "Login bem-sucedido.", token = token });
+    }
+
+
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
     }
 
     // [HttpPost("login")]

@@ -8,7 +8,7 @@
 // using Microsoft.IdentityModel.Tokens;
 
 
-// namespace dotnet_banco_digital.Controllers;
+// namespace starbank_api.Domain.Models;
 
 // public class UsuarioLogadoResponse
 // {

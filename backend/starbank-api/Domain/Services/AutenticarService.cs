@@ -5,7 +5,7 @@ namespace starbank_api.Domain.Services;
 
 public interface IAutenticacaoService
 {
-    Task<Customer> AutenticarCustomer(string email, string password);
+    Task<Customer?> AutenticarCustomer(string email, string password);
 }
 
 public class AutenticacaoService : IAutenticacaoService
@@ -17,7 +17,7 @@ public class AutenticacaoService : IAutenticacaoService
         _context = context;
     }
 
-    public async Task<Customer> AutenticarCustomer(string email, string password)
+    public async Task<Customer?> AutenticarCustomer(string email, string password)
     {
         var customerLoggedIn = await _context.Customers.SingleOrDefaultAsync(customer => customer.Email == email);
 
