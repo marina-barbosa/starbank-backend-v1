@@ -1,6 +1,6 @@
 <!-- Modal 1 -->
 <div *ngIf="currentModal === 1" class="modal-content">
-  <button class="back-button" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+  <button class="back-button" routerLink="/land"><i class="fas fa-arrow-left"></i> Voltar</button>
   <h1>StarPay</h1>
   <h3>Bem vindo, ficamos muito felizes em te ver por aqui.</h3>
 
@@ -16,25 +16,27 @@
       <option value="partnership">Partnership</option>
       <option value="limited-liability-company">Limited Liability Company</option>
     </select>
-    <div>
-      <button class="btn btn-primary" (click)="nextModal()">Enviar</button>
+    <div class="div-button">
+      <button class="button-primary" (click)="nextModal()">Enviar</button>
     </div>
   </div>
 </div>
 
 <!-- Modal 2 -->
-<div *ngIf="currentModal === 2" class="modal-content">
+<div *ngIf="currentModal === 2" class="modal-content modal-dois">
 
   <button class="back-button" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
   <h3>Queremos saber mais sobre seu negócio, para isso, pedimos que preencha os campos abaixo:</h3>
 
   <div class="form-wrapper">
-    <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+    <input type="text" class="form-control" id="email" placeholder="E-mail" required>
     <p *ngIf="formData.email && !isValidEmail(formData.email)" class="error-message">E-mail inválido</p>
     <p *ngIf="!formData.email" class="error-message">E-mail é obrigatório</p>
     <input type="text" class="form-control" id="phone" placeholder="Telefone">
-    <input type="text" class="form-control" id="addressStreet" placeholder="Rua" required>
-    <input type="text" class="form-control" id="addressNumber" placeholder="N°" required>
+    <div class="street">
+      <input type="text" class="form-control" id="addressStreet" placeholder="Rua" required>
+      <input type="text" class="form-control" id="addressNumber" placeholder="N°" required>
+    </div>
     <input type="text" class="form-control" id="addressComplement" placeholder="Complemento">
     <input type="text" class="form-control" id="addressNeighborhood" placeholder="Bairro" required>
     <input type="text" class="form-control" id="addressCity" placeholder="Cidade" required>
@@ -45,12 +47,12 @@
     </select>
 
     <p *ngIf="!selectedState" class="error-message">Campo obrigatório</p>
-    <div><button class="btn btn-primary" (click)="nextModal()">Enviar</button>
+    <div class="div-button"><button class="button-primary" (click)="nextModal()">Enviar</button>
     </div>
   </div>
 </div>
-
-<div *ngIf="currentModal === 3" class="modal-content">
+<!-- Modal 3 -->
+<div *ngIf="currentModal === 3" class="modal-content modal-tres">
   <button class="back-button" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
   <h3>Ótimo, já estamos quase lá, crie uma senha de acesso. Lembre-se de criar uma senha forte!</h3>
 
@@ -60,4 +62,6 @@
     <p *ngIf="!formData.confirmPassword" class="error-message">Confirmação de senha é obrigatória</p>
     <p *ngIf="formData.password !== formData.confirmPassword" class="error-message">Senhas não conferem</p>
 
-    <button class="btn btn-primary" (click)="register()">Cadastrar</button>
+    <div class="div-button">
+      <button class="button-primary" (click)="register()">Cadastrar</button>
+    </div>
