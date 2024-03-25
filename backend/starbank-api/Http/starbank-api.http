@@ -5,17 +5,49 @@
 
 
 ###
-POST {{URL}}/v1/customer/register
+GET {{URL}}/v1/account/customer
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+GET {{URL}}/v1/account/account
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+GET {{URL}}/v1/account/balance
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+GET {{URL}}/v1/account/withdraw
+Authorization: Bearer {{TOKEN}}
 content-type: application/json
 
 {
-  "nome": "dog1",
-  "email": "dog1@email.com",
-  "telefone": "12341234",
-  "tipoCliente": "PF",
-  "senhaLogin": "string"
+  "value": 9
 }
+###
 
+
+
+###
+GET {{URL}}/v1/account/deposit
+Authorization: Bearer {{TOKEN}}
+content-type: application/json
+
+{
+  "value": 234
+}
 ###
 
 
@@ -28,63 +60,6 @@ content-type: application/json
   "email": "flor1@email.com",
   "password": "string"
 }
-###
-
-
-###
-GET {{URL}}/v1/account/customer
-Authorization: Bearer {{TOKEN}}
-
-###
-
-
-###
-GET {{URL}}/v1/account/account
-Authorization: Bearer {{TOKEN}}
-
-###
-
-###
-GET {{URL}}/v1/account/balance
-Authorization: Bearer {{TOKEN}}
-
-###
-
-
-###
-GET {{URL}}/v1/usuario/17
-Authorization: Bearer {{TOKEN}}
-Accept: application/json
-
-###
-
-
-
-###
-GET {{URL}}/v1/usuario/logado
-Authorization: Bearer {{TOKEN}}
-
-###
-
-
-
-###
-POST {{URL}}/v1/customer/addressregister
-content-type: application/json
-
-{
-  "id": 0,
-  "CustomerId": 1,
-  "rua": "string",
-  "cidade": "string",
-  "estado": "string",
-  "cep": "string",
-  "pais": "string",
-  "criadoEm": "2024-03-24T00:39:28.521Z",
-  "atualizadoEm": "2024-03-24T00:39:28.521Z",
-  "deletadoEm": "2024-03-24T00:39:28.521Z"
-}
-
 ###
 
 
@@ -125,4 +100,11 @@ content-type: application/json
     "confirmPasswordTransaction": "string"
   }
 }
+###
+
+
+
+###
+GET {{URL}}/v1/customer/5
+Accept: application/json
 ###
