@@ -1,11 +1,40 @@
-.container {
+body{
+    background: red;
+}
+
+.container {    
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    width: 80%;
+    height: 80%;
+    margin: 10px;
+    font-family: 'Khand';
+    font-size: 30px;
+    text-align: center;
 }
+.card-title{
+    font-size: 30px;
+}
+.card-text{
+    font-size: 20px;
+    margin-bottom: 20px;
 
+}
+.card-body{
+    margin: 20px;
+}
+.btn{
+    background-color: var(--amarelo10);
+    color: #ffffff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 20px;
+}
 .card {
     width: 100%;
+    padding: 0;
 }
 
 .card:first-child {
