@@ -9,16 +9,15 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { ModalTourComponent } from './components/modal-tour/modal-tour.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WithdrawalComponent } from './payments/withdrawal/withdrawal.component';
+import { DashboardComponent } from "./payments/dashboard/dashboard.component";
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-
-  imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, ModalTourComponent, NavbarComponent, WithdrawalComponent],
-
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [CommonModule, FormsModule, RouterOutlet, HomeComponent, FooterComponent, LandingPageComponent, ModalTourComponent, NavbarComponent, WithdrawalComponent, DashboardComponent]
 })
 export class AppComponent {
   title = 'StarPay';
