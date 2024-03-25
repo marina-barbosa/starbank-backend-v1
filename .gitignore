@@ -1,8 +1,10 @@
 
 
 
-StarPay\backend\obj
-backend\obj
+StarPay\backend\starbank\obj
+backend\starbank\obj
+StarPay\backend\starbank-api\bin
+backend\starbank-api\bin
 obj
 bin
 

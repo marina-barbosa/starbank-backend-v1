@@ -17,9 +17,17 @@
     <div class="sidebar" [ngClass]="{'sidebar-active': menuIconChecked}">
       <img class="porquin" src="../../../assets/porquin.png">
       <div class="side-mid">
-        <a id="central" (click)="chooseComponent($event); menuIconChecked = false"><i class="bi bi-wallet2"></i>Conta</a>
+        <a id="central" (click)="chooseComponent($event); menuIconChecked = false"><i
+            class="bi bi-wallet2"></i>Conta</a>
         <a (click)="menuIconChecked = false"><i class="fa-brands fa-pix"></i>Pix</a>
-        <a id="transacoes" (click)="chooseComponent($event); menuIconChecked = false"><i class="bi bi-arrow-down-up"></i>Transações</a>
+        <a id="transacoes" (click)="chooseComponent($event); menuIconChecked = false"><i
+            class="bi bi-arrow-down-up"></i>Transações</a>
+        <a id="deposito" (click)="chooseComponent($event); menuIconChecked = false"><i
+            class="bi bi-arrow-down-up"></i>Deposito</a>
+        <a id="saque" (click)="chooseComponent($event); menuIconChecked = false"><i
+            class="bi bi-arrow-down-up"></i>Saque</a>
+        <a id="transfer" (click)="chooseComponent($event); menuIconChecked = false"><i
+            class="bi bi-arrow-down-up"></i>Transferência</a>
         <a (click)="menuIconChecked = false"><i class="bi bi-upc-scan"></i>Pagamentos</a>
         <a (click)="menuIconChecked = false"><i class="bi bi-credit-card"></i>Cartão</a>
         <a (click)="menuIconChecked = false"><i class="bi bi-piggy-bank"></i>Poupança</a>
@@ -33,7 +41,7 @@
     </div>
 
     <label for="menu-icon" class="menu-icon">
-      <input id="menu-icon" type="checkbox" [(ngModel)]="menuIconChecked"/>
+      <input id="menu-icon" type="checkbox" [(ngModel)]="menuIconChecked" />
       <span></span>
       <span></span>
       <span></span>
@@ -42,6 +50,9 @@
     <ng-container [ngSwitch]="selectedComponent">
       <app-central class="right" *ngSwitchCase="'central'"></app-central>
       <app-transacoes class="right" *ngSwitchCase="'transacoes'"></app-transacoes>
+      <app-ticket class="right" *ngSwitchCase="'deposito'"></app-ticket>
+      <app-withdrawal class="right" *ngSwitchCase="'saque'"></app-withdrawal>
+      <app-transfer class="right" *ngSwitchCase="'transfer'"></app-transfer>
       <app-central class="right" *ngSwitchCaseDefault></app-central>
     </ng-container>
 
