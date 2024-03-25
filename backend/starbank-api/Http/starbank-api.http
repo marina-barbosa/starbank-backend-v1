@@ -1,0 +1,110 @@
+@URL = http://localhost:5287
+
+@TOKEN = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJIb3J0ZW5jaWEiLCJlbWFpbCI6ImZsb3IxQGVtYWlsLmNvbSIsImp0aSI6IjUiLCJuYW1laWQiOiI1IiwibmJmIjoxNzExMzIxODM3LCJleHAiOjE3MTEzMjkwMzcsImlhdCI6MTcxMTMyMTgzNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1Mjg3IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1Mjg3In0.4IvomZX1R4rhyD4wCLTZaq-dFtWXqg6HT94zkA3PF7sjyCP5tjgGiWKD2noZJ2N2Ik88huFufZZ9VzVHyyPROg
+
+
+
+###
+GET {{URL}}/v1/account/customer
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+GET {{URL}}/v1/account/account
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+GET {{URL}}/v1/account/balance
+Authorization: Bearer {{TOKEN}}
+
+###
+
+
+
+###
+GET {{URL}}/v1/account/withdraw
+Authorization: Bearer {{TOKEN}}
+content-type: application/json
+
+{
+  "value": 9
+}
+###
+
+
+
+###
+GET {{URL}}/v1/account/deposit
+Authorization: Bearer {{TOKEN}}
+content-type: application/json
+
+{
+  "value": 234
+}
+###
+
+
+
+###
+POST {{URL}}/v1/customer/login
+content-type: application/json
+
+{
+  "email": "flor1@email.com",
+  "password": "string"
+}
+###
+
+
+
+###
+POST {{URL}}/v1/customer/registracontapj
+content-type: application/json
+
+{
+  "customerRequest": {
+    "name": "Hortencia",
+    "email": "flor1@email.com",
+    "phone": "string",
+    "clientType": "PF",
+    "loginPassword": "string"
+  },
+  "addressRequest": {
+    "street": "Rua das Flores",
+    "city": "string",
+    "state": "string",
+    "zipCode": "string",
+    "country": "string",
+    "createdAt": "2024-03-24T21:44:24.500Z",
+    "updatedAt": "2024-03-24T21:44:24.500Z",
+    "deletedAt": "2024-03-24T21:44:24.500Z"
+  },
+  "legalEntityRequest": {
+    "cnpj": "18760000",
+    "fantasyName": "string",
+    "stateRegistration": "string",
+    "annualBillingInCents": 1099000,
+    "taxation": "string"
+  },
+  "accountRequest": {
+    "accountType": 0,
+    "keyPix": "pix2345234",
+    "passwordTransaction": "string",
+    "confirmPasswordTransaction": "string"
+  }
+}
+###
+
+
+
+###
+GET {{URL}}/v1/customer/5
+Accept: application/json
+###
