@@ -1,35 +1,29 @@
-![StarBank](src/assets/StarBank.png) ![Foguete](src/assets/logo1.png)
-
-
-Star Bank Fintech Project | Sharp Coders 2023
+# Star Bank Fintech Project | Sharp Coders 2023
 
 Welcome to the project under development by the Star Tech team for Sharp Coders' HackaDev 2023. We are excited to introduce Star Bank, an innovative fintech in development aiming to redefine the financial experience.
 
 ## Index
+
 - [Project features](#project-features)
 - [Layout](#layout)
-- [Demonstration](#demonstration)
 - [Technologies Used](#technologies-used)
 - [Star Tech Team](#star-tech-team)
 
-## Project features 
+## Project features
 
--  Home
--  Login
--  User registration
--  Transaction history
+- Home
+- Login
+- Register
+- Transaction history
 
 ## Layout
 
-<img src="src/assets/home.jpeg" alt="Home" style="width:600px;"/>
-<img src="src/assets/login.jpeg" alt="Login" style="width:600px;"/>
-<img src="src/assets/cadastro.jpeg" alt="Registration" style="width:600px;"/>
-<img src="src/assets/areaDoUsuario.jpeg" alt="User space" style="width:600px;"/>
-<img src="colocarCaminhoImagem" alt="Transaction history" style="width:600px;"/>
-
-## Demonstration
-
-[Link Deploy](colocarLinkDeploy)
+![Home](frontend/src/assets/home.PNG)
+![Login](frontend/src/assets/login.PNG)
+![Register](frontend/src/assets/register1.PNG)
+![Register](frontend/src/assets/register2.PNG)
+![Register](frontend/src/assets/register3.PNG)
+![Transaction history](frontend/src/assets/transactionHistory.PNG)
 
 ## Technologies Used
 
@@ -38,15 +32,13 @@ Welcome to the project under development by the Star Tech team for Sharp Coders'
 - TypeScript
 - Bootstrap
 - Angular - version 17.1.3
+- C#
 
 ## Star Tech Team
 
 - Alexandre Belem
 - Aline Vieira
-- Brando Lee
-- Lucas Padilha
 - Marina Barbosa
-- Moisés Oliveira
 - Vitor Vogas
 - Verônica Oliveira
 - Wanderson Duarte
