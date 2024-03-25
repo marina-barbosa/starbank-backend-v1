@@ -1,0 +1,108 @@
+/* Estilos para modais */
+
+
+p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Khand';
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-bottom: 30px;
+}
+
+.modal-dois h3,
+.modal-tres h3 {
+  margin-top: 30px;
+}
+
+.street {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilos para os inputs */
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para os campos de "Número" e "Complemento" */
+.modal-content #addressNumber{
+  display: inline-block;
+  width: 48%;
+  // margin-right: 4%;
+  width: calc(15% - 5px);
+  /* Define a largura para metade do tamanho da modal menos o espaçamento */
+  // margin-right: 10px;
+  /* Adiciona um espaçamento à direita */
+}
+
+/* Estilos para botão de voltar */
+.back-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-button i {
+  margin-right: 5px;
+}
+
+.div-button {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .btn-primary {
+//   background-color: var(--amarelo10);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   cursor: pointer;
+//   margin: 0 auto;
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 5px;
+//   font-size: 25px;
+//   color: black;
+// }
+
+.form-wrapper {
+  text-align: left;
+}
+
+/* Consulta de mídia para telas menores */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-width: none;
+  }
+}

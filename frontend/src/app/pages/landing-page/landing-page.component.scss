@@ -1,4 +1,3 @@
-
 nav,
 section,
 footer {
@@ -54,7 +53,7 @@ nav .logo {
 nav button {
   width: 130px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
   background: var(--preto);
   color: var(--branco);
@@ -68,6 +67,9 @@ nav button i {
   font-weight: 500;
 }
 
+nav button:hover{
+  opacity: .8;
+}
 
 .banner {
   width: 100%;
@@ -111,18 +113,18 @@ nav button i {
 }
 
 .banner-left button {
-  width: 200px;
+  // width: 200px;
   height: 50px;
-  border-radius: 10px;
-  border: none;
-  background: var(--primaria);
-  color: var(--branco);
+  // border-radius: 10px;
+  // border: none;
+  // background: var(--primaria);
+  // color: var(--branco);
   font-size: 18px;
 }
 
-.banner-left button i {
-  color: var(--branco);
-}
+// .banner-left button i {
+//   color: var(--branco);
+// }
 
 .slide-logo {
   width: 100%;
@@ -231,7 +233,7 @@ nav button i {
 .card-left button {
   width: 200px;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
   background: var(--preto);
   color: var(--branco);
@@ -240,6 +242,10 @@ nav button i {
 
 .card-left button i {
   color: var(--branco);
+}
+
+.card-left button:hover{
+  opacity: .8;
 }
 
 .card-right {
@@ -422,12 +428,16 @@ nav button i {
 }
 
 #celulares-landing-page {
-  width: 500px; /* ajuste o tamanho conforme necessário */
-  height: auto; /* mantenha a proporção original da imagem */
-  margin-right: 10px; /* ajuste o espaçamento entre o ícone e o texto */
-  vertical-align: middle; /* alinhe verticalmente com o texto */
+  width: 500px;
+  /* ajuste o tamanho conforme necessário */
+  height: auto;
+  /* mantenha a proporção original da imagem */
+  margin-right: 10px;
+  /* ajuste o espaçamento entre o ícone e o texto */
+  vertical-align: middle;
+  /* alinhe verticalmente com o texto */
   margin-top: 221px;
-  
+
 }
 
 .newsletter {
@@ -472,6 +482,10 @@ nav button i {
   margin-left: 10px;
 }
 
+.newsletter button:hover{
+  opacity: .8;
+}
+
 footer {
   width: 100%;
   height: 350px;
@@ -498,10 +512,10 @@ footer .logo span {
 }
 
 #logo-foguete {
-  width: 15px; 
+  width: 15px;
   height: auto;
-  margin-right: 10px; 
-  vertical-align: middle; 
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 
@@ -703,5 +717,3 @@ footer .footer-bot i {
 
 
 }
-
-
