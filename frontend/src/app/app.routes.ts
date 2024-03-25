@@ -27,9 +27,9 @@ export const routes: Routes = [
   { path: 'receipt', component: ReceiptComponent },
   { path: 'accept', component: AcceptComponent},
   { path: 'denied', component: DeniedComponent },
-  {path: 'pix', component: PixComponent},
-  {path: 'ticket', component: TicketComponent},
-  {path: 'withdrawal', component: WithdrawalComponent},
+  { path: 'pix', component: PixComponent},
+  { path: 'ticket', component: TicketComponent},
+  { path: 'withdrawal', component: WithdrawalComponent},
   { path: '**', redirectTo: 'land' },
 ];
 
