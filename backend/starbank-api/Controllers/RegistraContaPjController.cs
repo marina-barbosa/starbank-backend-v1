@@ -2,8 +2,11 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using starbank_api.Domain;
+using starbank_api.Domain.Models;
 
-namespace starbank_api.Domain.Models;
+namespace starbank_api.Controllers;
+
 
 
 [ApiController]

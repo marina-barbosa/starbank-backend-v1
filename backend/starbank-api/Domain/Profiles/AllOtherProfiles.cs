@@ -14,6 +14,7 @@ public class AllOtherProfiles : Profile
         CreateMap<LegalEntityRequestDto, LegalEntity>();
         CreateMap<AddressRequestDto, Address>();
         CreateMap<AccountRequestDto, Account>();
+        CreateMap<TransferAccountToAccountRequestDto, Transation>();
     }
 
 

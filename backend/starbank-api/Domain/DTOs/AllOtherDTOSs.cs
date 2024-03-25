@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace starbank_api.Domain.Models;
 
@@ -71,5 +72,13 @@ public class LegalEntityRequestDto
 
     [StringLength(100)]
     public required string Taxation { get; set; }
+}
+
+public class TransferAccountToAccountRequestDto
+{   
+    [Required]
+    public int TargetCustomerId { get; set; }
+    [Required]
+    public int ValueInCents { get; set; }
 }
 
