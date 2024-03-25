@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-central',

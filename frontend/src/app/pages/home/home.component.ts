@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { CentralComponent } from '../central/central.component';
-import { TransacoesComponent } from '../transacoes/transacoes.component';
+import { CentralComponent } from '../../components/central/central.component';
+import { TransacoesComponent } from '../../components/transacoes/transacoes.component';
 import { NavigationService } from '../../services/navigation.service';
-import { WithdrawalComponent } from '../../payments/withdrawal/withdrawal.component';
-import { TransferComponent } from '../../payments/transfer/transfer.component';
-import { TicketComponent } from '../../payments/ticket/ticket.component';
+import { WithdrawalComponent } from '../../components/withdrawal/withdrawal.component';
+import { TransferComponent } from '../../components/transfer/transfer.component';
+import { TicketComponent } from '../../components/ticket/ticket.component';
 
 @Component({
   selector: 'app-home',
@@ -16,15 +16,15 @@ import { TicketComponent } from '../../payments/ticket/ticket.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   imports: [
-    CommonModule, 
-    FooterComponent, 
-    FormsModule, 
-    RouterOutlet, 
-    CentralComponent, 
-    TransacoesComponent, 
-    RouterLink, 
-    WithdrawalComponent, 
-    TransferComponent, 
+    CommonModule,
+    FooterComponent,
+    FormsModule,
+    RouterOutlet,
+    CentralComponent,
+    TransacoesComponent,
+    RouterLink,
+    WithdrawalComponent,
+    TransferComponent,
     TicketComponent
   ]
 })
@@ -73,12 +73,12 @@ export class HomeComponent implements OnInit {
     if ($event.srcElement.id === 'central') {
       this.selectedComponent = 'central';
     } else if ($event.srcElement.id === 'transacoes') {
-      this.selectedComponent = 'transacoes';    
+      this.selectedComponent = 'transacoes';
     } else if ($event.srcElement.id === 'deposito') {
       this.selectedComponent = 'deposito';
     } else if ($event.srcElement.id === 'saque') {
       this.selectedComponent = 'saque';
-    }else if ($event.srcElement.id === 'transfer') {
+    } else if ($event.srcElement.id === 'transfer') {
       this.selectedComponent = 'transfer';
     }
   }

@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ModalTourComponent } from '../../modal-tour/modal-tour.component';
+import { ModalTourComponent } from '../../../components/modal-tour/modal-tour.component';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -54,7 +54,7 @@ export class LoginComponent {
   password: string = '';
   loginError: boolean = false;
 
-  constructor(private userService: UserService, private router: Router){}
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     // Verificar se há um usuário autenticado ao carregar a página
